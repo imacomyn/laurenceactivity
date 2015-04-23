@@ -1,1 +1,1 @@
-﻿include("./Model/Cours/Cours-events.js");include("./Model/Informations/Informations-events.js");include("./Model/Eleves/Eleves-events.js");
+﻿include("./Model/Cours/Cours-events.js");include("./Model/Informations/Informations-events.js");include("./Model/Eleves/Eleves-events.js");include("./Model/Utilisateurs/Utilisateurs-events.js");

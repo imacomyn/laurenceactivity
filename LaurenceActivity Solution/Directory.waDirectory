@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<directory>
-	<group ID="01000000000000000000000000000000" name="Admin">
-	</group>
-</directory>
-
+﻿<?xml version="1.0" encoding="UTF-8"?><directory>	<group ID="01000000000000000000000000000000" name="Admin">		<include user="imacomyn" ID="CE9643D5F6A7406593C378ABAC93F1A7"/>	</group>	<group ID="28F4EBC020A24C1CBCFA2CBAB390E4B4" name="Elève"/>	<group ID="8E1A31758AC74AC9BCFF027EF81D8477" name="Administrateur">		<include user="imacomyn" ID="CE9643D5F6A7406593C378ABAC93F1A7"/>	</group>	<group ID="19AB05D9FFB6421E975820C67163C778" name="Professeur"/>	<user ID="CE9643D5F6A7406593C378ABAC93F1A7" name="imacomyn" fullName="Arnaud TROTIN" password="2ccf5ccc50ef01f9320ae11978a90639"/></directory>
