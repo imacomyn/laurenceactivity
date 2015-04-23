@@ -1,0 +1,1 @@
+﻿model.Cours.events.onInit = function() {	this.Date_Creation = new Date();	this.Derniere_MAJ = new Date();};model.Cours.events.onSave = function() {	this.Derniere_MAJ = new Date();};
