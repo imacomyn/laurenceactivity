@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html><section data-group="[]">
     <meta name="generator" content="Wakanda GUIDesigner"/>
     <meta name="WAF.catalog" content="Utilisateurs,Eleves"/>
-    <meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="Utilisateurs" data-scope="local" data-lib="WAF" data-id="{id}utilisateurs" data-dataType="string" data-autoLoad="true" content="utilisateurs" data-initialOrderBy="Nom"/>
+    <meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="Utilisateurs" data-scope="local" data-lib="WAF" data-initialOrderBy="Nom" data-id="{id}utilisateurs" data-dataType="string" data-autoLoad="true" content="utilisateurs"/>
     <meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="Eleves" data-scope="local" data-lib="WAF" data-id="{id}eleves" data-dataType="string" data-autoLoad="true" content="eleves"/>
     <meta name="WAF.config.datasources" data-type="dataSource" data-source-type="scalar" data-source="{id}elev" data-scope="local" data-lib="WAF" data-id="{id}elev" data-dataType="string" data-autoLoad="true" content="elev"/>
     <meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="{id}eleves.Utilisateur" data-scope="local" data-lib="WAF" data-id="{id}Utilisateur" data-dataType="string" data-autoLoad="true" content="Utilisateur"/>
+    
+    
     
     
     
@@ -30,7 +32,7 @@
 		<label id="{id}label6" for="{id}cDateEntree" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-textfield">Date d'entrée : </label>
 		<input type="text" tabindex="7" id="{id}cDateSortie" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="Date de sortie : " data-datapicker-on="true" data-datapicker-icon-only="true" data-constraint-top="true" data-constraint-left="true" data-binding="{id}utilisateurs.Date_Sortie" class="waf-widget waf-textField"/>
 		<label id="{id}label7" for="{id}cDateSortie" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-textfield">Date de sortie : </label>
-		<div id="{id}cFonction" data-type="combobox" data-limit="20" data-lib="WAF" data-label-position="left" data-label="Fonction : " data-hideonload="true" data-editable="true" data-constraint-top="true" data-constraint-left="true" data-binding-out="{id}{id}utilisateurs.Fonction" data-autoDispatch="true" class="waf-widget waf-combobox"><select><option value="Administrateur">Administrateur</option><option value="Professeur">Professeur</option><option value="Elève" selected="selected">Elève</option></select></div>
+		<div id="{id}cFonction" data-type="combobox" data-limit="20" data-lib="WAF" data-label-position="left" data-label="Fonction : " data-hideonload="true" data-editable="true" data-constraint-top="true" data-constraint-left="true" data-binding-out="{id}{id}utilisateurs.Fonction" data-autoDispatch="true" class="waf-widget waf-combobox"><select><option value="Administrateur">Administrateur</option><option value="Professeur">Professeur</option><option value="Elève" selected="selected">Elève</option><option value="Invité">Invité</option></select></div>
 		<label id="{id}label8" for="{id}cFonction" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-combobox">Fonction : </label>
 		<input type="text" tabindex="9" id="{id}ceMail" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="eMail : " data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-left="true" data-binding="{id}utilisateurs.eMail" class="waf-widget waf-textField"/>
 		<label id="{id}label9" for="{id}ceMail" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-textfield">eMail : </label>
