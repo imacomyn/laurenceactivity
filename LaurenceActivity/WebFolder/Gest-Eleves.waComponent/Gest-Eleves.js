@@ -13,6 +13,7 @@ function constructor (id) {
 	this.load = function (data) {// @lock
 		
 	$$("cchg").hide();
+	$$("component1_ListInscriptions").setRowHeight(20);
 
 	// @region namespaceDeclaration// @startlock
 	var ListEleves = {};	// @dataGrid
@@ -59,6 +60,7 @@ function constructor (id) {
 		$$('component1_btUpdate').show();
 		$$('component1_btSave').hide();
 		$$('component1_btUndo').hide();
+		$$('component1_uPhoto').hide();
 		
 		$$('component1_ListEleves').enable();
 		$$('component1_cbPres').enable();
@@ -89,6 +91,7 @@ function constructor (id) {
 		$$('component1_btUpdate').show();
 		$$('component1_btSave').hide();
 		$$('component1_btUndo').hide();
+		$$('component1_uPhoto').hide();
 		
 		$$('component1_ListInscriptions').setReadOnly(true);
 		$$('component1_Adresse_1').setReadOnly(true);
@@ -125,6 +128,7 @@ function constructor (id) {
 		$$('component1_btUpdate').hide();
 		$$('component1_btSave').show();
 		$$('component1_btUndo').show();
+		$$('component1_uPhoto').show();
 		
 		$$('component1_ListInscriptions').setReadOnly(false);
 		$$('component1_Adresse_1').setReadOnly(false);
