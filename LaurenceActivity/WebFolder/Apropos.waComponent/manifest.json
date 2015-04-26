@@ -1,6 +1,1 @@
-{
-    "name"    : "Apropos",    
-    "html"    : "Apropos.html",
-    "styles"  : [],
-    "scripts" : ["Apropos.js"]
-}
+﻿{"name":"Apropos","html":"Apropos.html","scripts":["Apropos.js"],"styles":["Apropos.css"]}

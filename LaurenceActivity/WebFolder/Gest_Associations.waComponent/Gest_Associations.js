@@ -18,6 +18,23 @@ function constructor (id) {
 	$$('component1_bUpdate').disable();
 
 	// @region namespaceDeclaration// @startlock
+	var cCoul = {};	// @textField
+	var button2 = {};	// @button
+	var cRoseF = {};	// @button
+	var cSaumon = {};	// @button
+	var cMarron = {};	// @button
+	var cVioletc = {};	// @button
+	var cGrisC = {};	// @button
+	var cCiel = {};	// @button
+	var bGris = {};	// @button
+	var cOrange = {};	// @button
+	var button3 = {};	// @button
+	var cJaune = {};	// @button
+	var cBleuVert = {};	// @button
+	var cVert = {};	// @button
+	var cRouge = {};	// @button
+	var cBleu = {};	// @button
+	var cRose = {};	// @button
 	var Sigle = {};	// @textField
 	var Nom = {};	// @textField
 	var ListAssociations = {};	// @dataGrid
@@ -28,6 +45,123 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	cCoul.click = function cCoul_click (event)// @startlock
+	{// @endlock
+		$$("component1_tCoul").setBackgroundColor($$("component1_cCoulCode").getValue());
+	};// @lock
+
+	button2.click = function button2_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Bleu foncé");
+		$$("component1_cCoulCode").setValue("#778de5");
+		$$("component1_tCoul").setBackgroundColor("#778de5");
+	};// @lock
+
+	cRoseF.click = function cRoseF_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Rose foncé");
+		$$("component1_cCoulCode").setValue("#ffaad4");
+		$$("component1_tCoul").setBackgroundColor("#ffaad4");
+	};// @lock
+
+	cSaumon.click = function cSaumon_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Saumon");
+		$$("component1_cCoulCode").setValue("#ffd4aa");
+		$$("component1_tCoul").setBackgroundColor("#ffd4aa");
+	};// @lock
+
+	cMarron.click = function cMarron_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Marron");
+		$$("component1_cCoulCode").setValue("#d8883c");
+		$$("component1_tCoul").setBackgroundColor("#d8883c");
+	};// @lock
+
+	cVioletc.click = function cVioletc_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Violet clair");
+		$$("component1_cCoulCode").setValue("#d4aaff");
+		$$("component1_tCoul").setBackgroundColor("#d4aaff");
+	};// @lock
+
+	cGrisC.click = function cGrisC_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Gris clair");
+		$$("component1_cCoulCode").setValue("#e5e5e5");
+		$$("component1_tCoul").setBackgroundColor("#e5e5e5");
+	};// @lock
+
+	cCiel.click = function cCiel_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Bleu ciel");
+		$$("component1_cCoulCode").setValue("#aad4ff");
+		$$("component1_tCoul").setBackgroundColor("#aad4ff");
+	};// @lock
+
+	bGris.click = function bGris_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Gris");
+		$$("component1_cCoulCode").setValue("#b2b2b2");
+		$$("component1_tCoul").setBackgroundColor("#b2b2b2");
+	};// @lock
+
+	cOrange.click = function cOrange_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Orange");
+		$$("component1_cCoulCode").setValue("#ffaa56");
+		$$("component1_tCoul").setBackgroundColor("#ffaa56");
+	};// @lock
+
+	button3.click = function button3_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Violet");
+		$$("component1_cCoulCode").setValue("#aaaaff");
+		$$("component1_tCoul").setBackgroundColor("#aaaaff");
+	};// @lock
+
+	cJaune.click = function cJaune_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Jaune");
+		$$("component1_cCoulCode").setValue("#ffff56");
+		$$("component1_tCoul").setBackgroundColor("#ffff56");
+	};// @lock
+
+	cBleuVert.click = function cBleuVert_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Bleu Vert");
+		$$("component1_cCoulCode").setValue("#00bfbf");
+		$$("component1_tCoul").setBackgroundColor("#00bfbf");
+	};// @lock
+
+	cVert.click = function cVert_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Vert");
+		$$("component1_cCoulCode").setValue("#71f2af");
+		$$("component1_tCoul").setBackgroundColor("#71f2af");
+	};// @lock
+
+	cRouge.click = function cRouge_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Rouge");
+		$$("component1_cCoulCode").setValue("#ff5656");
+		$$("component1_tCoul").setBackgroundColor("#ff5656");
+	};// @lock
+
+	cBleu.click = function cBleu_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Bleu");
+		$$("component1_cCoulCode").setValue("#56aaff");
+		$$("component1_tCoul").setBackgroundColor("#56aaff");
+	};// @lock
+
+	cRose.click = function cRose_click (event)// @startlock
+	{// @endlock
+		$$("component1_cCoul").setValue("Rose");
+		$$("component1_cCoulCode").setValue("#ffaaaa");
+		$$("component1_tCoul").setBackgroundColor("#ffaaaa");
+	};// @lock
 
 	Sigle.blur = function Sigle_blur (event)// @startlock
 	{// @endlock
@@ -96,6 +230,7 @@ function constructor (id) {
 	ListAssociations.onRowClick = function ListAssociations_onRowClick (event)// @startlock
 	{// @endlock
 		$$('component1_bUpdate').enable();
+		$$("component1_tCoul").setBackgroundColor($$("component1_cCoulCode").getValue());
 	};// @lock
 
 	bNew.click = function bNew_click (event)// @startlock
@@ -112,6 +247,7 @@ function constructor (id) {
 		$$('component1_bSave').disable();
 		$$('component1_bUndo').show();
 		$$('component1_uPhoto').show();
+		$$('component1_cPalette').show();
 		$$('component1_Nom').setReadOnly(false);
 		$$('component1_Sigle').setReadOnly(false);
 		$$('component1_Adresse_1').setReadOnly(false);
@@ -137,6 +273,7 @@ function constructor (id) {
 		$$('component1_bSave').hide();
 		$$('component1_bUndo').hide();
 		$$('component1_uPhoto').hide();
+		$$('component1_cPalette').hide();
 		$$('component1_Nom').setReadOnly(true);
 		$$('component1_Sigle').setReadOnly(true);
 		$$('component1_Adresse_1').setReadOnly(true);
@@ -160,6 +297,7 @@ function constructor (id) {
 		$$('component1_bSave').hide();
 		$$('component1_bUndo').hide();
 		$$('component1_uPhoto').hide();
+		$$('component1_cPalette').hide();
 		$$('component1_Nom').setReadOnly(true);
 		$$('component1_Sigle').setReadOnly(true);
 		$$('component1_Adresse_1').setReadOnly(true);
@@ -186,6 +324,7 @@ function constructor (id) {
 		//$$('component1_bSave').disable();
 		$$('component1_bUndo').show();
 		$$('component1_uPhoto').show();
+		$$('component1_cPalette').show();
 		$$('component1_Nom').setReadOnly(false);
 		$$('component1_Sigle').setReadOnly(false);
 		$$('component1_Adresse_1').setReadOnly(false);
@@ -202,6 +341,23 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_cCoul", "click", cCoul.click, "WAF");
+	WAF.addListener(this.id + "_button2", "click", button2.click, "WAF");
+	WAF.addListener(this.id + "_cRoseF", "click", cRoseF.click, "WAF");
+	WAF.addListener(this.id + "_cSaumon", "click", cSaumon.click, "WAF");
+	WAF.addListener(this.id + "_cMarron", "click", cMarron.click, "WAF");
+	WAF.addListener(this.id + "_cVioletc", "click", cVioletc.click, "WAF");
+	WAF.addListener(this.id + "_cGrisC", "click", cGrisC.click, "WAF");
+	WAF.addListener(this.id + "_cCiel", "click", cCiel.click, "WAF");
+	WAF.addListener(this.id + "_bGris", "click", bGris.click, "WAF");
+	WAF.addListener(this.id + "_cOrange", "click", cOrange.click, "WAF");
+	WAF.addListener(this.id + "_button3", "click", button3.click, "WAF");
+	WAF.addListener(this.id + "_cJaune", "click", cJaune.click, "WAF");
+	WAF.addListener(this.id + "_cBleuVert", "click", cBleuVert.click, "WAF");
+	WAF.addListener(this.id + "_cVert", "click", cVert.click, "WAF");
+	WAF.addListener(this.id + "_cRouge", "click", cRouge.click, "WAF");
+	WAF.addListener(this.id + "_cBleu", "click", cBleu.click, "WAF");
+	WAF.addListener(this.id + "_cRose", "click", cRose.click, "WAF");
 	WAF.addListener(this.id + "_Sigle", "blur", Sigle.blur, "WAF");
 	WAF.addListener(this.id + "_Sigle", "change", Sigle.change, "WAF");
 	WAF.addListener(this.id + "_Nom", "change", Nom.change, "WAF");
