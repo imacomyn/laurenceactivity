@@ -1,8 +1,15 @@
 ﻿<!DOCTYPE html><section data-group="[['uPhoto','button5','button6','button7','button8','container3']]">
     <meta name="generator" content="Wakanda GUIDesigner"/>
-    <meta name="WAF.catalog" content="Eleves,Utilisateurs"/>
+    <meta name="WAF.catalog" content="Eleves,Utilisateurs,Inscriptions,Annees_Scolaires"/>
     <meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="Eleves" data-scope="local" data-lib="WAF" data-initialOrderBy="Nom_Complet" data-id="{id}eleves" data-dataType="string" data-autoLoad="true" content="eleves"/>
     <meta name="WAF.config.datasources" data-type="dataSource" data-source-type="dataClass" data-source="{id}eleves.Utilisateur" data-scope="local" data-lib="WAF" data-id="{id}Utilisateur" data-dataType="string" data-autoLoad="true" content="Utilisateur"/>
+    <meta data-type="dataSource" data-lib="WAF" data-source="Annees_Scolaires" data-source-type="dataClass" data-dataType="string" data-autoLoad="true" name="WAF.config.datasources" data-scope="local" data-id="{id}annees_Scolaires" content="annees_Scolaires"/>
+    <meta data-type="dataSource" data-lib="WAF" data-source="{id}eleves.inscriptionsCollection" data-source-type="dataClass" data-dataType="string" data-autoLoad="true" name="WAF.config.datasources" data-scope="local" data-id="{id}inscriptionsCollection" content="inscriptionsCollection"/>
+    
+    
+    
+    
+    
     
     
     
@@ -69,4 +76,17 @@
  		<div id="{id}container3" data-type="container" data-linked-tag="{id}uPhoto" data-lib="WAF" data-label-position="top" data-label="" data-context="['protected']" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" class="waf-widget waf-container waf-container-level-0 waf-level-0 waf-fileUpload-fileList waf-fileUpload-fileList-menu"></div>
  	</div>
 		<label id="{id}label29" for="{id}uPhoto" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-fileupload">Photo identité : </label>
+		<div id="{id}Adresse" data-type="container" data-lib="WAF" data-label-position="top" data-label="" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-container waf-container-level-0 waf-level-0">
+	 	<input type="text" id="{id}Adresse_1" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="" data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="{id}eleves.Adresse_1" class="waf-widget waf-textField"/>
+ 			<input type="text" id="{id}Adresse_2" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="" data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="{id}eleves.Adresse_2" class="waf-widget waf-textField"/>
+ 			<input type="text" id="{id}CP" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="" data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="{id}eleves.CP" class="waf-widget waf-textField"/>
+ 			<input type="text" id="{id}Ville" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="" data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-right="false" data-constraint-left="true" data-constraint-bottom="false" data-binding="{id}eleves.Ville" class="waf-widget waf-textField"/>
+ 		</div>
+		<div id="{id}richText1" data-type="richText" data-target="_blank" data-plainText="true" data-overflow="Hidden" data-lib="WAF" data-label-position="left" data-label="" data-constraint-top="true" data-constraint-left="true" data-autoWidth="true" class="waf-widget waf-richText">Adresse :</div>
+		<input type="text" id="{id}Portable" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="Portable :" data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-left="true" data-binding="{id}eleves.Portable" class="waf-widget waf-textField"/>
+		<label id="{id}label13" for="{id}Portable" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-textfield">Portable :</label>
+		<input type="text" id="{id}Fixe" data-type="textField" data-readOnly="true" data-password="false" data-multiline="false" data-lib="WAF" data-label-position="left" data-label="Fixe :" data-datapicker-on="false" data-datapicker-icon-only="false" data-constraint-top="true" data-constraint-left="true" data-binding="{id}eleves.Telephone" class="waf-widget waf-textField"/>
+		<label id="{id}label14" for="{id}Fixe" data-valign="middle" data-type="label" data-margin="5" data-lib="WAF" data-constraint-top="true" data-constraint-left="true" class="waf-widget waf-label waf-label-textfield">Fixe :</label>
+		<div id="{id}ListInscriptions" data-type="dataGrid" data-lib="WAF" data-binding="{id}inscriptionsCollection" class="waf-widget waf-dataGrid" data-label="Inscriptions" data-label-position="top" data-selection-mode="single" data-display-error="true" data-footer-text="item(s)" data-column="[{'sourceAttID':'Annee_Scolaire.Identifiant','colID':'Annee_Scolaire_Identifiant','width':'140','title':'Ann%E9e%20Scolaire'},{'sourceAttID':'Trim_1','colID':'Trim_1','width':'39','title':'T1'},{'sourceAttID':'Trim_2','colID':'Trim_2','width':'38','title':'T2'},{'sourceAttID':'Trim_3','colID':'Trim_3','width':'43','title':'T3'}]" data-constraint-left="true" data-constraint-top="true" data-readOnly="true" data-footer-hide="true"></div>
+		<label id="{id}label7" data-type="label" data-lib="WAF" for="{id}ListInscriptions" data-valign="middle" data-margin="5" class="waf-widget waf-label waf-label-datagrid" data-constraint-left="true" data-constraint-top="true">Inscriptions</label>
 	</section>

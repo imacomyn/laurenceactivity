@@ -30,11 +30,9 @@ function constructor (id) {
 	{// @endlock
 		var vNom = $$('component1_cNom').getValue();
 		
-		if (vNom === "A") {
-			$$('component1_btUpdate').disable();
-		} else {
-			$$('component1_btUpdate').enable();
-		}
+		$$('component1_btUpdate').enable();
+		
+	
 	};// @lock
 
 	cbPres.click = function cbPres_click (event)// @startlock
@@ -61,12 +59,19 @@ function constructor (id) {
 		$$('component1_btUpdate').show();
 		$$('component1_btSave').hide();
 		$$('component1_btUndo').hide();
-			
-		sources.component1_eleves.MaFamille.set(sources.component1_familles);
 		
 		$$('component1_ListEleves').enable();
 		$$('component1_cbPres').enable();
 		$$('component1_ListEleves').setReadOnly(true);
+		
+		$$('component1_ListInscriptions').setReadOnly(true);
+		$$('component1_Adresse_1').setReadOnly(true);
+		$$('component1_Adresse_2').setReadOnly(true);
+		$$('component1_CP').setReadOnly(true);
+		$$('component1_Ville').setReadOnly(true);
+		$$('component1_Portable').setReadOnly(true);
+		$$('component1_Fixe').setReadOnly(true);
+		
 		$$('component1_cMess').setValue("");
 		
 		sources.component1_eleves.save({
@@ -84,6 +89,14 @@ function constructor (id) {
 		$$('component1_btUpdate').show();
 		$$('component1_btSave').hide();
 		$$('component1_btUndo').hide();
+		
+		$$('component1_ListInscriptions').setReadOnly(true);
+		$$('component1_Adresse_1').setReadOnly(true);
+		$$('component1_Adresse_2').setReadOnly(true);
+		$$('component1_CP').setReadOnly(true);
+		$$('component1_Ville').setReadOnly(true);
+		$$('component1_Portable').setReadOnly(true);
+		$$('component1_Fixe').setReadOnly(true);
 		
 		$$('component1_ListEleves').enable();
 		$$('component1_cbPres').enable();
@@ -112,6 +125,14 @@ function constructor (id) {
 		$$('component1_btUpdate').hide();
 		$$('component1_btSave').show();
 		$$('component1_btUndo').show();
+		
+		$$('component1_ListInscriptions').setReadOnly(false);
+		$$('component1_Adresse_1').setReadOnly(false);
+		$$('component1_Adresse_2').setReadOnly(false);
+		$$('component1_CP').setReadOnly(false);
+		$$('component1_Ville').setReadOnly(false);
+		$$('component1_Portable').setReadOnly(false);
+		$$('component1_Fixe').setReadOnly(false);
 		
 		$$('component1_ListEleves').disable();
 		$$('component1_cbPres').disable();
