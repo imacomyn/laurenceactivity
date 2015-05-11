@@ -37,8 +37,8 @@ function constructor (id) {
 	{// @endlock
 		$$('component1_bUpdate').show();
 		$$('component1_bNew').show();
-		$$('component1_bSave').show();
-		$$('component1_bUndo').show();
+		$$('component1_bSave').hide();
+		$$('component1_bUndo').hide();
 		$$('component1_btShow').show();
 		$$('component1_btClose').hide();
 		$$('component1_fShow').hide();
