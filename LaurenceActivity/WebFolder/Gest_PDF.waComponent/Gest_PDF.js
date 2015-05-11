@@ -48,7 +48,6 @@ function constructor (id) {
 	{// @endlock
 		var vFic, vURL;
 		
-		vFic = $$('component1_cFic').getValue();
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
 		$$('component1_bSave').hide();
@@ -56,21 +55,7 @@ function constructor (id) {
 		$$('component1_btShow').hide();
 		$$('component1_btClose').show();
 		$$('component1_fShow').show();
-		vURL = "/Cours_PDF/" + vFic;
-		//$$('component1_fShow').setValue(vURL);
 		
-		if (wPathname.indexOf("index") != -1) {
-			wExportURL = wURL.replace(wPathname, '');
-			wExportURL += "/";
-			wExportURL += vFic;
-		} else {
-			wExportURL = wURL.replace(wPathname, '');
-			wExportURL += "Cours/";
-			wExportURL += vFic;
-		}
-
-		alert(wExportURL);
-		$('#component1_fShow iframe').attr('src',wExportURL);
 
 		
 	};// @lock
@@ -111,8 +96,8 @@ function constructor (id) {
 
 	cUpld.filesUploaded = function cUpld_filesUploaded (event)// @startlock
 	{// @endlock
-		var myArray = $$('component1_cUpld').getFiles();
-		$$('component1_cFic').setValue(myArray[0].name);
+		//var myArray = $$('component1_cUpld').getFiles();
+		//$$('component1_cFic').setValue(myArray[0].name);
 	};// @lock
 
 	bNew.click = function bNew_click (event)// @startlock
