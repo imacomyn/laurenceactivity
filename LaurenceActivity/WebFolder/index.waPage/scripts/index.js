@@ -2,6 +2,7 @@
 WAF.onAfterInit = function onAfterInit() {// @lock
 
 // @region namespaceDeclaration// @startlock
+	var menuItem13 = {};	// @menuItem
 	var M_About = {};	// @menuItem
 	var menuItem9 = {};	// @menuItem
 	var menuItem14 = {};	// @menuItem
@@ -14,6 +15,12 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 // @endregion// @endlock
 
 // eventHandlers// @lock
+
+	menuItem13.click = function menuItem13_click (event)// @startlock
+	{// @endlock
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_PDF.waComponent");
+	};// @lock
 
 	M_About.click = function M_About_click (event)// @startlock
 	{// @endlock
@@ -106,6 +113,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
+	WAF.addListener("menuItem13", "click", menuItem13.click, "WAF");
 	WAF.addListener("M_About", "click", M_About.click, "WAF");
 	WAF.addListener("menuItem9", "click", menuItem9.click, "WAF");
 	WAF.addListener("menuItem14", "click", menuItem14.click, "WAF");
