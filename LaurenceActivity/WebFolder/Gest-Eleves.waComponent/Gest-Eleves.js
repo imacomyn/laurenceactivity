@@ -1,5 +1,9 @@
 ﻿
 (function Component (id) {// @lock
+	
+	var wURL = window.location.href,
+		wPathname = window.location.pathname,
+		iFrame;
 
 // Add the code that needs to be shared between components here
 
@@ -16,6 +20,7 @@ function constructor (id) {
 	$$("component1_ListInscriptions").setRowHeight(20);
 
 	// @region namespaceDeclaration// @startlock
+	var btExport = {};	// @buttonImage
 	var ListEleves = {};	// @dataGrid
 	var cbPres = {};	// @checkbox
 	var btSave = {};	// @button
@@ -24,6 +29,21 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	btExport.click = function btExport_click (event)// @startlock
+	{// @endlock
+		if (wPathname.indexOf("index") != -1) {
+			wExportURL = wURL.replace(wPathname, '');
+			wExportURL += "/exportEleves";
+			wExportURL += ".xls";
+		} else {
+			wExportURL = wURL;
+			wExportURL += "exportEleves";
+			wExportURL += ".xls";
+		}
+
+		$('#component1_frame1 iframe').attr('src',wExportURL);
+	};// @lock
 	
 	$$('component1_btUpdate').disable();
 
@@ -162,6 +182,7 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_btExport", "click", btExport.click, "WAF");
 	WAF.addListener(this.id + "_ListEleves", "onRowClick", ListEleves.onRowClick, "WAF");
 	WAF.addListener(this.id + "_cbPres", "click", cbPres.click, "WAF");
 	WAF.addListener(this.id + "_btSave", "click", btSave.click, "WAF");
