@@ -1,1 +1,1 @@
-﻿model.Inscriptions.events.onInit = function() {	this.Annee_Complete = true;	this.Trim_1 = true;	this.Trim_2 = true;	this.Trim_3 = true;};
+﻿model.Inscriptions.events.onInit = function() {	this.Annee_Complete = true;	this.Trim_1 = true;	this.Trim_2 = true;	this.Trim_3 = true;	this.Adhesion = true;};
