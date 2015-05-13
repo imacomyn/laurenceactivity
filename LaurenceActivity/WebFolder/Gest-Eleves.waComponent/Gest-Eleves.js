@@ -93,9 +93,12 @@ function constructor (id) {
 		$$('component1_Ville').setReadOnly(true);
 		$$('component1_Portable').setReadOnly(true);
 		$$('component1_Fixe').setReadOnly(true);
+		$$('component1_cAssoc').show();
+		$$('component1_cbAssoc').hide();
 		
 		$$('component1_cMess').setValue("");
 		
+		sources.component1_eleves.Association.set(sources.component1_association);
 		sources.component1_eleves.save({
                 onSuccess:function(event2) {}
             });
@@ -120,6 +123,8 @@ function constructor (id) {
 		$$('component1_Ville').setReadOnly(true);
 		$$('component1_Portable').setReadOnly(true);
 		$$('component1_Fixe').setReadOnly(true);
+		$$('component1_cAssoc').show();
+		$$('component1_cbAssoc').hide();
 		
 		$$('component1_ListEleves').enable();
 		$$('component1_cbPres').enable();
@@ -157,12 +162,15 @@ function constructor (id) {
 		$$('component1_Ville').setReadOnly(false);
 		$$('component1_Portable').setReadOnly(false);
 		$$('component1_Fixe').setReadOnly(false);
+		$$('component1_cAssoc').hide();
+		$$('component1_cbAssoc').show();
 		
 		$$('component1_ListEleves').disable();
 		$$('component1_cbPres').disable();
 		
 		USexe = $$('component1_cSexe').getValue();
 		$$('component1_rSexe').setValue(USexe);
+		$$('component1_cbAssoc').setValue($$('component1_cAssocb').getValue());
 		
 		$$('component1_cMess').setValue("");
 		
