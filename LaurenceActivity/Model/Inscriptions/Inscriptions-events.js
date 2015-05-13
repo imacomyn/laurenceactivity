@@ -1,0 +1,1 @@
+﻿model.Inscriptions.events.onInit = function() {	this.Annee_Complete = true;};
