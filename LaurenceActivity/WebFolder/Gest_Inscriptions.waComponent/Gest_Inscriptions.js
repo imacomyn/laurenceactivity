@@ -1,7 +1,9 @@
 ﻿
 (function Component (id) {// @lock
 
-// Add the code that needs to be shared between components here
+	var wURL = window.location.href,
+		wPathname = window.location.pathname,
+		iFrame;
 
 function constructor (id) {
 
@@ -20,6 +22,12 @@ function constructor (id) {
 	$$('component1_cbxT3').disable();
 
 	// @region namespaceDeclaration// @startlock
+	var btExport = {};	// @buttonImage
+	var cbxT3 = {};	// @checkbox
+	var cbxT2 = {};	// @checkbox
+	var cbxT1 = {};	// @checkbox
+	var cbxAdh = {};	// @checkbox
+	var cbxAn = {};	// @checkbox
 	var btSave = {};	// @button
 	var btUndo = {};	// @button
 	var btUpd = {};	// @button
@@ -31,6 +39,87 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	btExport.click = function btExport_click (event)// @startlock
+	{// @endlock
+		if (wPathname.indexOf("index") != -1) {
+			wExportURL = wURL.replace(wPathname, '');
+			wExportURL += "/exportInscrits";
+			wExportURL += ".xls";
+		} else {
+			wExportURL = wURL;
+			wExportURL += "exportInscrits";
+			wExportURL += ".xls";
+		}
+
+		$('#component1_frame1 iframe').attr('src',wExportURL);
+	};// @lock
+
+	cbxT3.click = function cbxT3_click (event)// @startlock
+	{// @endlock
+		if ($$('component1_cbxT3').getValue()) {
+			$$('component1_cChT3').setReadOnly(false);
+			$$('component1_cChMT3').setReadOnly(false);
+		} else {
+			$$('component1_cChT3').setReadOnly(true);
+			$$('component1_cChMT3').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
+	};// @lock
+
+	cbxT2.click = function cbxT2_click (event)// @startlock
+	{// @endlock
+		if ($$('component1_cbxT2').getValue()) {
+			$$('component1_cChT2').setReadOnly(false);
+			$$('component1_cChMT2').setReadOnly(false);
+		} else {
+			$$('component1_cChT2').setReadOnly(true);
+			$$('component1_cChMT2').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
+	};// @lock
+
+	cbxT1.click = function cbxT1_click (event)// @startlock
+	{// @endlock
+		if ($$('component1_cbxT1').getValue()) {
+			$$('component1_cChT1').setReadOnly(false);
+			$$('component1_cChMT1').setReadOnly(false);
+		} else {
+			$$('component1_cChT1').setReadOnly(true);
+			$$('component1_cChMT1').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
+	};// @lock
+
+	cbxAdh.click = function cbxAdh_click (event)// @startlock
+	{// @endlock
+		if ($$('component1_cbxAdh').getValue()) {
+			$$('component1_cChAdh').setReadOnly(false);
+			$$('component1_cChMAdh').setReadOnly(false);
+		} else {
+			$$('component1_cChAdh').setReadOnly(true);
+			$$('component1_cChMAdh').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
+	};// @lock
+
+	cbxAn.click = function cbxAn_click (event)// @startlock
+	{// @endlock
+		if ($$('component1_cbxAn').getValue()) {
+			$$('component1_cbxAdh').check();
+			$$('component1_cbxT1').check();
+			$$('component1_cbxT2').check();
+			$$('component1_cbxT3').check();
+			$$('component1_cChAdh').setReadOnly(false);
+			$$('component1_cChT1').setReadOnly(false);
+			$$('component1_cChT2').setReadOnly(false);
+			$$('component1_cChT3').setReadOnly(false);
+			$$('component1_cChMAdh').setReadOnly(false);
+			$$('component1_cChMT1').setReadOnly(false);
+			$$('component1_cChMT2').setReadOnly(false);
+			$$('component1_cChMT3').setReadOnly(false);
+		}
+	};// @lock
 
 	btSave.click = function btSave_click (event)// @startlock
 	{// @endlock
@@ -109,14 +198,38 @@ function constructor (id) {
 		$$('component1_btIns').hide();
 		$$('component1_btSave').show();
 		$$('component1_btUndo').show();
-		$$('component1_cChAdh').setReadOnly(false);
-		$$('component1_cChT1').setReadOnly(false);
-		$$('component1_cChT2').setReadOnly(false);
-		$$('component1_cChT3').setReadOnly(false);
-		$$('component1_cChMAdh').setReadOnly(false);
-		$$('component1_cChMT1').setReadOnly(false);
-		$$('component1_cChMT2').setReadOnly(false);
-		$$('component1_cChMT3').setReadOnly(false);
+		if ($$('component1_cbxAdh').getValue()) {
+			$$('component1_cChAdh').setReadOnly(false);
+			$$('component1_cChMAdh').setReadOnly(false);
+		} else {
+			$$('component1_cChAdh').setReadOnly(true);
+			$$('component1_cChMAdh').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
+		if ($$('component1_cbxT1').getValue()) {
+			$$('component1_cChT1').setReadOnly(false);
+			$$('component1_cChMT1').setReadOnly(false);
+		} else {
+			$$('component1_cChT1').setReadOnly(true);
+			$$('component1_cChMT1').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
+		if ($$('component1_cbxT2').getValue()) {
+			$$('component1_cChT2').setReadOnly(false);
+			$$('component1_cChMT2').setReadOnly(false);
+		} else {
+			$$('component1_cChT2').setReadOnly(true);
+			$$('component1_cChMT2').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
+		if ($$('component1_cbxT3').getValue()) {
+			$$('component1_cChT3').setReadOnly(false);
+			$$('component1_cChMT3').setReadOnly(false);
+		} else {
+			$$('component1_cChT3').setReadOnly(true);
+			$$('component1_cChMT3').setReadOnly(true);
+			$$('component1_cbxAn').uncheck();
+		}
 		
 	};// @lock
 
@@ -192,13 +305,38 @@ function constructor (id) {
 
 	ListAnScol.onRowClick = function ListAnScol_onRowClick (event)// @startlock
 	{// @endlock
-		var vAnScol, vToday;
+		var vAnScol, vToday,vUser;
 		
 		$$('component1_btSup').hide();
 		$$('component1_btUpd').hide();
 		$$('component1_btIns').hide();
 		$$('component1_btSave').hide();
 		$$('component1_btUndo').hide();
+		$$('component1_btExport').show();
+				
+		vUser = WAF.directory.currentUser().userName;
+		//alert(vUser);
+		sources.component1_utilisateurs.query("Login = :1", { onSuccess: function(event) { 
+			var vUser;
+			vUser = WAF.directory.currentUser().userName;
+    		sources.component1_userParam.query("Utilisateur.Login = :1", { onSuccess: function(event) { 
+    			elem = sources.component1_userParam;
+    			if (elem.length === 0) {
+     				sources.component1_userParam.addNewElement();
+     				sources.component1_utilisateurs.query("Login = :1", { onSuccess: function(event) { 
+      					sources.component1_userParam.Utilisateur.set(sources.component1_utilisateurs);
+      					sources.component1_userParam.Annee_Scolaire.set(sources.component1_annees_Scolaires);
+      		      		sources.component1_userParam.save();
+     				}, params:[vUser] });
+    			} else {
+     				sources.component1_userParam.Annee_Scolaire.set(sources.component1_annees_Scolaires);
+     				sources.component1_userParam.save();
+    			}
+    		}, params:[vUser] });
+    		
+    	}, params:[vUser] });
+
+		
 		vAnScol = sources.component1_annees_Scolaires.ID;
 		vToday = new Date();
 		sources.component1_eleves1.query("Association.ID=:1 and ( Utilisateur.Date_Sortie = null or Utilisateur.Date_Sortie > :2 ) order by Nom_Complet",vAnScol,vToday);
@@ -206,6 +344,12 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_btExport", "click", btExport.click, "WAF");
+	WAF.addListener(this.id + "_cbxT3", "click", cbxT3.click, "WAF");
+	WAF.addListener(this.id + "_cbxT2", "click", cbxT2.click, "WAF");
+	WAF.addListener(this.id + "_cbxT1", "click", cbxT1.click, "WAF");
+	WAF.addListener(this.id + "_cbxAdh", "click", cbxAdh.click, "WAF");
+	WAF.addListener(this.id + "_cbxAn", "click", cbxAn.click, "WAF");
 	WAF.addListener(this.id + "_btSave", "click", btSave.click, "WAF");
 	WAF.addListener(this.id + "_btUndo", "click", btUndo.click, "WAF");
 	WAF.addListener(this.id + "_btUpd", "click", btUpd.click, "WAF");
