@@ -27,17 +27,23 @@ function constructor (id) {
 
 	btCalc.click = function btCalc_click (event)// @startlock
 	{// @endlock
-		var vMonAn, vMonTrim, vCot, vTmp;
+		var vMonAn,  vCot, vTmp, vMonT1, vMonT2, vMonT3;
 		
 		vMonAn = 0;
 		
 		vTmp = $$('component1_cCot').getValue();
 		vTmp = vTmp.replace(',', '.');
 		vCot = parseFloat(vTmp);
-		vTmp = $$('component1_cMonTrim').getValue();
+		vTmp = $$('component1_cMonT1').getValue();
 		vTmp = vTmp.replace(',', '.');
-		vMonTrim = parseFloat(vTmp);
-		vMonAn = vCot + (3 * vMonTrim);
+		vMonT1 = parseFloat(vTmp);
+		vTmp = $$('component1_cMonT2').getValue();
+		vTmp = vTmp.replace(',', '.');
+		vMonT2 = parseFloat(vTmp);
+		vTmp = $$('component1_cMonT3').getValue();
+		vTmp = vTmp.replace(',', '.');
+		vMonT3 = parseFloat(vTmp);
+		vMonAn = vCot + vMonT1 + vMonT2 + vMonT3;
 		$$('component1_cMonAn').setValue(vMonAn);
 		
 	};// @lock
@@ -86,7 +92,9 @@ function constructor (id) {
 						$$('component1_cDatDeb').setReadOnly(true);
 						$$('component1_cDatFin').setReadOnly(true);
 						$$('component1_cMonAn').setReadOnly(true);
-						$$('component1_cMonTrim').setReadOnly(true);
+						$$('component1_cMonT1').setReadOnly(true);
+						$$('component1_cMonT2').setReadOnly(true);
+						$$('component1_cMonT3').setReadOnly(true);
 						$$('component1_cbAnScol').hide();
 						$$('component1_cbAssoc').hide();
 						$$('component1_btCalc').hide();
@@ -114,7 +122,9 @@ function constructor (id) {
 			$$('component1_cDatDeb').setReadOnly(true);
 			$$('component1_cDatFin').setReadOnly(true);
 			$$('component1_cMonAn').setReadOnly(true);
-			$$('component1_cMonTrim').setReadOnly(true);
+			$$('component1_cMonT1').setReadOnly(true);
+			$$('component1_cMonT2').setReadOnly(true);
+			$$('component1_cMonT3').setReadOnly(true);
 			$$('component1_cCot').setReadOnly(true);
 			$$('component1_cbAnScol').hide();
 			$$('component1_cbAssoc').hide();
@@ -173,7 +183,9 @@ function constructor (id) {
 		$$('component1_cDatDeb').setReadOnly(false);
 		$$('component1_cDatFin').setReadOnly(false);
 		$$('component1_cMonAn').setReadOnly(false);
-		$$('component1_cMonTrim').setReadOnly(false);
+		$$('component1_cMonT1').setReadOnly(false);
+		$$('component1_cMonT2').setReadOnly(false);
+		$$('component1_cMonT3').setReadOnly(false);
 		$$('component1_cCot').setReadOnly(false);
 		$$('component1_cbAnScol').show();
 		$$('component1_cbAssoc').show();
@@ -201,7 +213,9 @@ function constructor (id) {
 		$$('component1_cDatDeb').setReadOnly(false);
 		$$('component1_cDatFin').setReadOnly(false);
 		$$('component1_cMonAn').setReadOnly(false);
-		$$('component1_cMonTrim').setReadOnly(false);
+		$$('component1_cMonT1').setReadOnly(false);
+		$$('component1_cMonT2').setReadOnly(false);
+		$$('component1_cMonT3').setReadOnly(false);
 		$$('component1_cCot').setReadOnly(false);
 		$$('component1_cbAnScol').show();
 		$$('component1_cbAnScol').enable();
