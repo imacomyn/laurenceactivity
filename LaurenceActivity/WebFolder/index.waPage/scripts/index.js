@@ -2,6 +2,8 @@
 WAF.onAfterInit = function onAfterInit() {// @lock
 
 // @region namespaceDeclaration// @startlock
+	var menuItem17 = {};	// @menuItem
+	var menuItem16 = {};	// @menuItem
 	var menuItem15 = {};	// @menuItem
 	var menuItem10 = {};	// @menuItem
 	var menuItem13 = {};	// @menuItem
@@ -17,6 +19,18 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 // @endregion// @endlock
 
 // eventHandlers// @lock
+
+	menuItem17.click = function menuItem17_click (event)// @startlock
+	{// @endlock
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_Stages.waComponent");
+	};// @lock
+
+	menuItem16.click = function menuItem16_click (event)// @startlock
+	{// @endlock
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_Cours.waComponent");
+	};// @lock
 
 	menuItem15.click = function menuItem15_click (event)// @startlock
 	{// @endlock
@@ -127,6 +141,8 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
+	WAF.addListener("menuItem17", "click", menuItem17.click, "WAF");
+	WAF.addListener("menuItem16", "click", menuItem16.click, "WAF");
 	WAF.addListener("menuItem15", "click", menuItem15.click, "WAF");
 	WAF.addListener("menuItem10", "click", menuItem10.click, "WAF");
 	WAF.addListener("menuItem13", "click", menuItem13.click, "WAF");
