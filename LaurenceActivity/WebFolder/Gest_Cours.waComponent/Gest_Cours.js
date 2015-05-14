@@ -16,7 +16,9 @@ function constructor (id) {
 		$$('component1_shM').addHandle(52);	
 		$$('component1_shAM').addHandle(76);
 		$$('component1_shM').disable();	
-		$$('component1_shAM').disable();	
+		$$('component1_shAM').disable();
+		$$('component1_cbxM').disable();	
+		$$('component1_cbxAM').disable();	
 		
 		function convTime (Horaire) {
 		
@@ -246,6 +248,8 @@ function constructor (id) {
 		$$('component1_bUndo').show();
 		$$('component1_cbSalle').show();
 		$$('component1_cDate').setReadOnly(false);
+		$$('component1_cbxM').enable();	
+		$$('component1_cbxAM').enable();
 		$$('component1_cbxM').check();
 		$$('component1_shM').enable();
 		$$('component1_shM').setValues([36,48]);
@@ -273,6 +277,8 @@ function constructor (id) {
 		$$('component1_cDate').setReadOnly(true);
 		$$('component1_shM').disable();
 		$$('component1_shAM').disable();
+		$$('component1_cbxM').disable();	
+		$$('component1_cbxAM').disable();
 		$$('component1_cDate').getLabel().setTextColor("black");
 		$$('component1_cAction').setValue("-");
 		
@@ -298,6 +304,8 @@ function constructor (id) {
 		$$('component1_cDate').setReadOnly(true);
 		$$('component1_shM').disable();
 		$$('component1_shAM').disable();
+		$$('component1_cbxM').disable();	
+		$$('component1_cbxAM').disable();
 		$$('component1_cDate').getLabel().setTextColor("black");
 		$$('component1_cAction').setValue("-");
 		
@@ -343,6 +351,8 @@ function constructor (id) {
 		$$('component1_cbSalle').setValue(vSalle);
 		$$('component1_cDate').setReadOnly(true);
 		$$('component1_cMess').setReadOnly(false);
+		$$('component1_cbxM').enable();	
+		$$('component1_cbxAM').enable();
 		if($$('component1_cbxM').getValue()) {
 			$$('component1_shM').enable();
 		} else {
