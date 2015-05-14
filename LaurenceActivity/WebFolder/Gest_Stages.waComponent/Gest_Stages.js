@@ -306,6 +306,7 @@ function constructor (id) {
 		$$('component1_cbSalle').show();
 		$$('component1_cDeb').setReadOnly(false);
 		$$('component1_cFin').setReadOnly(false);
+		$$('component1_cMon').setReadOnly(false);
 		$$('component1_cbxM').enable();	
 		$$('component1_cbxAM').enable();	
 		$$('component1_cbxM').check();
@@ -335,6 +336,7 @@ function constructor (id) {
 		$$('component1_cbSalle').hide();
 		$$('component1_cDeb').setReadOnly(true);
 		$$('component1_cFin').setReadOnly(true);
+		$$('component1_cMon').setReadOnly(true);
 		$$('component1_shM').disable();
 		$$('component1_shAM').disable();
 		$$('component1_cbxM').disable();	
@@ -363,6 +365,7 @@ function constructor (id) {
 		$$('component1_cbSalle').hide();
 		$$('component1_cDeb').setReadOnly(true);
 		$$('component1_cFin').setReadOnly(true);
+		$$('component1_cMon').setReadOnly(true);
 		$$('component1_shM').disable();
 		$$('component1_shAM').disable();
 		$$('component1_cbxM').disable();	
@@ -407,6 +410,7 @@ function constructor (id) {
 		$$('component1_cbSalle').setValue(vSalle);
 		$$('component1_cDeb').setReadOnly(true);
 		$$('component1_cFin').setReadOnly(true);
+		$$('component1_cMon').setReadOnly(false);
 		$$('component1_cMess').setReadOnly(false);
 		$$('component1_cbxM').enable();	
 		$$('component1_cbxAM').enable();	
