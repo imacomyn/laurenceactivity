@@ -50,15 +50,17 @@ function constructor (id) {
 
 	cbAnScol.change = function cbAnScol_change (event)// @startlock
 	{// @endlock
-		var vAnScol;
+		var vAnScol, vAction;
 		
 		if ($$('component1_cbAnScol').getValue() === "-") {
 			$$('component1_bSave').disable();
 		} else {
-			vAnScol = $$('component1_cbAnScol').getValue() + " " + sources.component1_association.Sigle ;
-			$$('component1_cAnScol').setValue(vAnScol);
-			$$('component1_cIdent').setValue($$('component1_cbAnScol').getValue());
-			$$('component1_bSave').enable();
+			if (vAction === "Créer") {
+				vAnScol = $$('component1_cbAnScol').getValue() + " " + sources.component1_association.Sigle ;
+				$$('component1_cAnScol').setValue(vAnScol);
+				$$('component1_cIdent').setValue($$('component1_cbAnScol').getValue());
+				$$('component1_bSave').enable();
+			}
 		}
 		
 	};// @lock
@@ -204,6 +206,8 @@ function constructor (id) {
 
 	bUpdate.click = function bUpdate_click (event)// @startlock
 	{// @endlock
+		var vAssoc;
+		
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
 		$$('component1_ListAnScol').disable();
@@ -225,7 +229,8 @@ function constructor (id) {
 		$$('component1_cbAssoc').enable();
 		//$$('component1_cbAnScol').getLabel().setTextColor("red");
 		//$$('component1_cbAssoc').getLabel().setTextColor("red");
-		$$('component1_cbAssoc').setValue($$('component1_cAssocb').getValue());
+		vAssoc = sources.component1_annees_Scolaires.getAttributeValue("Association.ID");
+		$$('component1_cbAssoc').setValue(vAssoc);
 		$$('component1_cbAnScol').setValue($$('component1_cIdent').getValue());
 		$$('component1_cbAnScol').disable();
 		$$('component1_cbAssoc').disable();

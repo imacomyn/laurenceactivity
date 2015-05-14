@@ -118,6 +118,8 @@ function constructor (id) {
 			vAction = $$('component1_cAction').getValue();
 			if (vAction === "Créer") {
 				DatEntry = $$('component1_cDate').getValue();
+				split_date = DatEntry.split('/');
+				new_date = new Date(split_date[2], split_date[1]*1 - 1, split_date[0]*1);
 				vAnScol = sources.component1_annees_Scolaires.getAttributeValue("ID");
 				ds.Cours.query("dCours = :1 and Annee_Scolaire.ID = :2", { 
 					onSuccess:function(event) {
@@ -125,10 +127,11 @@ function constructor (id) {
 						NbSamDat = myCollection.length;
 						if (NbSamDat > 0) {
 							alert("Ce cours est déjà planifié pour cette année scolaire. Merci de choisir une date différente.");	
-							$$('component1_cdate').setValue(null);
+							$$('component1_cDate').setValue(null);
+							$$('component1_cJour').setValue(null);
 							$$('component1_bSave').disable();
 						}
-					}, params:[DatEntry, vAnScol] 
+					}, params:[new_date, vAnScol] 
 				});
 			}
 		} else {
@@ -153,6 +156,8 @@ function constructor (id) {
 			vAction = $$('component1_cAction').getValue();
 			if (vAction === "Créer") {
 				DatEntry = $$('component1_cDate').getValue();
+				split_date = DatEntry.split('/');
+				new_date = new Date(split_date[2], split_date[1]*1 - 1, split_date[0]*1);
 				vAnScol = sources.component1_annees_Scolaires.getAttributeValue("ID");
 				ds.Cours.query("dCours = :1 and Annee_Scolaire.ID = :2", { 
 					onSuccess:function(event) {
@@ -160,10 +165,11 @@ function constructor (id) {
 						NbSamDat = myCollection.length;
 						if (NbSamDat > 0) {
 							alert("Ce cours est déjà planifié pour cette année scolaire. Merci de choisir une date différente.");	
-							$$('component1_cdate').setValue(null);
+							$$('component1_cDate').setValue(null);
+							$$('component1_cJour').setValue(null);
 							$$('component1_bSave').disable();
 						}
-					}, params:[DatEntry, vAnScol] 
+					}, params:[new_date, vAnScol] 
 				});
 			}
 		} else {
@@ -238,6 +244,7 @@ function constructor (id) {
 		$$('component1_bSave').show();
 		$$('component1_bSave').disable();
 		$$('component1_bUndo').show();
+		$$('component1_cbSalle').show();
 		$$('component1_cDate').setReadOnly(false);
 		$$('component1_cbxM').check();
 		$$('component1_shM').enable();
@@ -262,6 +269,7 @@ function constructor (id) {
 		$$('component1_ListCours').setReadOnly(true);
 		$$('component1_bSave').hide();
 		$$('component1_bUndo').hide();
+		$$('component1_cbSalle').hide();
 		$$('component1_cDate').setReadOnly(true);
 		$$('component1_shM').disable();
 		$$('component1_shAM').disable();
@@ -286,6 +294,7 @@ function constructor (id) {
 		$$('component1_ListCours').setReadOnly(true);
 		$$('component1_bSave').hide();
 		$$('component1_bUndo').hide();
+		$$('component1_cbSalle').hide();
 		$$('component1_cDate').setReadOnly(true);
 		$$('component1_shM').disable();
 		$$('component1_shAM').disable();
@@ -310,6 +319,7 @@ function constructor (id) {
 		vJour = new_date.getDay();
 		$$('component1_cJour').setValue(LstJ[vJour]);
 		
+		sources.component1_coursCollection.Salle.set(sources.component1_salles);
 		sources.component1_coursCollection.save({
                 onSuccess:function(event2) {}
             });
@@ -318,6 +328,8 @@ function constructor (id) {
 
 	bUpdate.click = function bUpdate_click (event)// @startlock
 	{// @endlock
+		var vSalle;
+		
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
 		$$('component1_btSup').hide();
@@ -326,6 +338,9 @@ function constructor (id) {
 		$$('component1_bSave').show();
 		$$('component1_bSave').enable();
 		$$('component1_bUndo').show();
+		$$('component1_cbSalle').show();
+		vSalle = sources.component1_coursCollection.getAttributeValue("Salle.ID");
+		$$('component1_cbSalle').setValue(vSalle);
 		$$('component1_cDate').setReadOnly(true);
 		$$('component1_cMess').setReadOnly(false);
 		if($$('component1_cbxM').getValue()) {
