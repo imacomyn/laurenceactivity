@@ -337,9 +337,12 @@ function constructor (id) {
     	}, params:[vUser] });
 
 		
-		vAnScol = sources.component1_annees_Scolaires.ID;
+		vAnScol = sources.component1_annees_Scolaires.getAttributeValue("Association.ID");
+		//vAnScol = $$('component1_cAssoc').getValue();
+		//alert (vAnScol);
 		vToday = new Date();
-		sources.component1_eleves1.query("Association.ID=:1 and ( Utilisateur.Date_Sortie = null or Utilisateur.Date_Sortie > :2 ) order by Nom_Complet",vAnScol,vToday);
+		sources.component1_eleves1.query("Association.ID = :1 and ( Utilisateur.Date_Sortie = null or Utilisateur.Date_Sortie > :2 ) order by Nom_Complet",vAnScol,vToday);
+		
 		
 	};// @lock
 
