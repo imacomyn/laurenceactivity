@@ -13,6 +13,8 @@ function constructor (id) {
 	this.load = function (data) {// @lock
 		
 	$$("cchg").hide();
+	$$("component1_ListCP").setRowHeight(20);
+	$$("component1_ListSP").setRowHeight(20);
 
 	// @region namespaceDeclaration// @startlock
 	var btCalc = {};	// @buttonImage
