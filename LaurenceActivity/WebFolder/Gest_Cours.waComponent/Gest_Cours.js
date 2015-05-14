@@ -11,8 +11,32 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	this.load = function (data) {// @lock
+		
+		$$("cchg").hide();
+		$$('component1_shM').addHandle(52);	
+		$$('component1_shAM').addHandle(76);
+		$$('component1_shM').disable();	
+		$$('component1_shAM').disable();	
+		
+		function convTime (Horaire) {
+		
+			var vInt, vDec, vPart1, vPart2;
+			vInt = parseInt(Horaire/4,10)+':';
+			if (vInt.length ===2) {
+				vInt = '0'+vInt;
+			}
+			vDec = 15*(Horaire-4*parseInt(Horaire/4,10)) + ' ';
+			if (vDec.length === 2) {
+				vDec = '0'+vDec;
+			}
+			return (vInt+vDec);
+		}
 
 	// @region namespaceDeclaration// @startlock
+	var cbxAM = {};	// @checkbox
+	var cbxM = {};	// @checkbox
+	var shAM = {};	// @slider
+	var shM = {};	// @slider
 	var bNew = {};	// @button
 	var bUndo = {};	// @button
 	var bSave = {};	// @button
@@ -21,32 +45,78 @@ function constructor (id) {
 
 	// eventHandlers// @lock
 
+	cbxAM.click = function cbxAM_click (event)// @startlock
+	{// @endlock
+		if($$('component1_cbxAM').getValue()) {
+			$$('component1_shAM').enable();
+		} else {
+			$$('component1_shAM').disable();
+		}
+	};// @lock
+
+	cbxM.click = function cbxM_click (event)// @startlock
+	{// @endlock
+		if($$('component1_cbxM').getValue()) {
+			$$('component1_shM').enable();
+		} else {
+			$$('component1_shM').disable();
+		}
+	};// @lock
+
+	shAM.slidechange = function shAM_slidechange (event)// @startlock
+	{// @endlock
+		$$('component1_cAMDeb').setValue(event.data.values[0]); 
+		$$('component1_cAMFin').setValue(event.data.values[1]); 
+		$$('component1_tAMDeb').setValue(convTime(event.data.values[0]));
+		$$('component1_tAMFin').setValue(convTime(event.data.values[1]));
+	};// @lock
+
+	shAM.slide = function shAM_slide (event)// @startlock
+	{// @endlock
+		$$('component1_cAMDeb').setValue(event.data.values[0]); 
+		$$('component1_cAMFin').setValue(event.data.values[1]); 
+		$$('component1_tAMDeb').setValue(convTime(event.data.values[0]));
+		$$('component1_tAMFin').setValue(convTime(event.data.values[1]));
+	};// @lock
+
+	shM.slidechange = function shM_slidechange (event)// @startlock
+	{// @endlock
+		$$('component1_cMDeb').setValue(event.data.values[0]); 
+		$$('component1_cMFin').setValue(event.data.values[1]); 
+		$$('component1_tMDeb').setValue(convTime(event.data.values[0]));
+		$$('component1_tMFin').setValue(convTime(event.data.values[1]));
+	};// @lock
+
+	shM.slide = function shM_slide (event)// @startlock
+	{// @endlock
+		$$('component1_cMDeb').setValue(event.data.values[0]); 
+		$$('component1_cMFin').setValue(event.data.values[1]); 
+		$$('component1_tMDeb').setValue(convTime(event.data.values[0]));
+		$$('component1_tMFin').setValue(convTime(event.data.values[1]));
+	};// @lock
+
 	bNew.click = function bNew_click (event)// @startlock
 	{// @endlock
 		var CNom, CSigle;
 		
-		sources.component1_association.addNewElement();
+		sources.component1_coursCollection.addNewElement();
+		sources.component1_coursCollection.Annee_Scolaire.set(sources.component1_annees_Scolaires);
 		
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
-		$$('component1_ListAnScol').hide();
-		$$('component1_ListEleves').hide();
+		$$('component1_ListAnScol').disable();
+		$$('component1_ListCours').disable();
 		$$('component1_bSave').show();
 		$$('component1_bSave').disable();
 		$$('component1_bUndo').show();
-		$$('component1_uPhoto').show();
-		$$('component1_cPalette').show();
-		$$('component1_Nom').setReadOnly(false);
-		$$('component1_Sigle').setReadOnly(false);
-		$$('component1_Adresse_1').setReadOnly(false);
-		$$('component1_Adresse_2').setReadOnly(false);
-		$$('component1_CP').setReadOnly(false);
-		$$('component1_Ville').setReadOnly(false);
-		$$('component1_Contact_Nom').setReadOnly(false);
-		$$('component1_Contact_Portable').setReadOnly(false);
-		$$('component1_Contact_eMail').setReadOnly(false);
-		$$('component1_Nom').getLabel().setTextColor("red");
-		$$('component1_Sigle').getLabel().setTextColor("red");
+		$$('component1_cDate').setReadOnly(false);
+		$$('component1_cbxM').check();
+		$$('component1_shM').enable();
+		$$('component1_shM').setValues([36,48]);
+		$$('component1_cbxAM').check();
+		$$('component1_shAM').enable();
+		$$('component1_shAM').setValues([52,60]);
+		$$('component1_cDate').getLabel().setTextColor("red");
 		$$('component1_cAction').setValue("Créer");
 		
 				
@@ -56,23 +126,19 @@ function constructor (id) {
 	{// @endlock
 		$$('component1_bUpdate').show();
 		$$('component1_bNew').show();
-		$$('component1_ListAnScol').show();
-		$$('component1_ListEleves').show();
+		$$('component1_ListAnScol').enable();
+		$$('component1_ListAnScol').setReadOnly(true);
+		$$('component1_ListCours').enable();
+		$$('component1_ListCours').setReadOnly(true);
 		$$('component1_bSave').hide();
 		$$('component1_bUndo').hide();
-		$$('component1_uPhoto').hide();
-		$$('component1_cPalette').hide();
-		$$('component1_Nom').setReadOnly(true);
-		$$('component1_Sigle').setReadOnly(true);
-		$$('component1_Adresse_1').setReadOnly(true);
-		$$('component1_Adresse_2').setReadOnly(true);
-		$$('component1_CP').setReadOnly(true);
-		$$('component1_Ville').setReadOnly(true);
-		$$('component1_Contact_Nom').setReadOnly(true);
-		$$('component1_Contact_Portable').setReadOnly(true);
-		$$('component1_Contact_eMail').setReadOnly(true);
+		$$('component1_cDate').setReadOnly(true);
+		$$('component1_shM').disable();
+		$$('component1_shAM').disable();
+		$$('component1_cDate').getLabel().setTextColor("black");
+		$$('component1_cAction').setValue("-");
 		
-		$$('component1').loadComponent("/Gest_Associations.waComponent");
+		$$('component1').loadComponent("/Gest_Cours.waComponent");
 		
 	};// @lock
 
@@ -80,23 +146,19 @@ function constructor (id) {
 	{// @endlock
 		$$('component1_bUpdate').show();
 		$$('component1_bNew').show();
-		$$('component1_ListAnScol').show();
-		$$('component1_ListEleves').show();
+		$$('component1_ListAnScol').enable();
+		$$('component1_ListAnScol').setReadOnly(true);
+		$$('component1_ListCours').enable();
+		$$('component1_ListCours').setReadOnly(true);
 		$$('component1_bSave').hide();
 		$$('component1_bUndo').hide();
-		$$('component1_uPhoto').hide();
-		$$('component1_cPalette').hide();
-		$$('component1_Nom').setReadOnly(true);
-		$$('component1_Sigle').setReadOnly(true);
-		$$('component1_Adresse_1').setReadOnly(true);
-		$$('component1_Adresse_2').setReadOnly(true);
-		$$('component1_CP').setReadOnly(true);
-		$$('component1_Ville').setReadOnly(true);
-		$$('component1_Contact_Nom').setReadOnly(true);
-		$$('component1_Contact_Portable').setReadOnly(true);
-		$$('component1_Contact_eMail').setReadOnly(true);
+		$$('component1_cDate').setReadOnly(true);
+		$$('component1_shM').disable();
+		$$('component1_shAM').disable();
+		$$('component1_cDate').getLabel().setTextColor("black");
+		$$('component1_cAction').setValue("-");
 		
-		sources.component1_association.save({
+		sources.component1_coursCollection.save({
                 onSuccess:function(event2) {}
             });
 		
@@ -106,29 +168,23 @@ function constructor (id) {
 	{// @endlock
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
-		$$('component1_ListAnScol').hide();
-		$$('component1_ListEleves').hide();
+		$$('component1_ListAnScol').disable();
+		$$('component1_ListCours').disable();
 		$$('component1_bSave').show();
-		//$$('component1_bSave').disable();
+		$$('component1_bSave').enablee();
 		$$('component1_bUndo').show();
-		$$('component1_uPhoto').show();
-		$$('component1_cPalette').show();
-		$$('component1_Nom').setReadOnly(false);
-		$$('component1_Sigle').setReadOnly(false);
-		$$('component1_Adresse_1').setReadOnly(false);
-		$$('component1_Adresse_2').setReadOnly(false);
-		$$('component1_CP').setReadOnly(false);
-		$$('component1_Ville').setReadOnly(false);
-		$$('component1_Contact_Nom').setReadOnly(false);
-		$$('component1_Contact_Portable').setReadOnly(false);
-		$$('component1_Contact_eMail').setReadOnly(false);
-		$$('component1_Nom').getLabel().setTextColor("red");
-		$$('component1_Sigle').getLabel().setTextColor("red");
+		$$('component1_cDate').setReadOnly(true);
 		$$('component1_cAction').setValue("Modifier");
 		
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_cbxAM", "click", cbxAM.click, "WAF");
+	WAF.addListener(this.id + "_cbxM", "click", cbxM.click, "WAF");
+	WAF.addListener(this.id + "_shAM", "slidechange", shAM.slidechange, "WAF");
+	WAF.addListener(this.id + "_shAM", "slide", shAM.slide, "WAF");
+	WAF.addListener(this.id + "_shM", "slidechange", shM.slidechange, "WAF");
+	WAF.addListener(this.id + "_shM", "slide", shM.slide, "WAF");
 	WAF.addListener(this.id + "_bNew", "click", bNew.click, "WAF");
 	WAF.addListener(this.id + "_bUndo", "click", bUndo.click, "WAF");
 	WAF.addListener(this.id + "_bSave", "click", bSave.click, "WAF");

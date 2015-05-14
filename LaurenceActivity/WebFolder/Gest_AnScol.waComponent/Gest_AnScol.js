@@ -154,7 +154,9 @@ function constructor (id) {
 		$$('component1_cDatDeb').setReadOnly(true);
 		$$('component1_cDatFin').setReadOnly(true);
 		$$('component1_cMonAn').setReadOnly(true);
-		$$('component1_cMonTrim').setReadOnly(true);
+		$$('component1_cMonT1').setReadOnly(true);
+		$$('component1_cMonT2').setReadOnly(true);
+		$$('component1_cMonT3').setReadOnly(true);
 		$$('component1_cCot').setReadOnly(true);
 		$$('component1_cbAnScol').hide();
 		$$('component1_cbAssoc').hide();
