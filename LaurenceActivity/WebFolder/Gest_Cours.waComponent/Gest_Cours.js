@@ -33,6 +33,10 @@ function constructor (id) {
 		}
 
 	// @region namespaceDeclaration// @startlock
+	var ListAnScol = {};	// @dataGrid
+	var ListCours = {};	// @dataGrid
+	var btSup = {};	// @buttonImage
+	var cDate = {};	// @textField
 	var cbxAM = {};	// @checkbox
 	var cbxM = {};	// @checkbox
 	var shAM = {};	// @slider
@@ -44,6 +48,130 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	ListAnScol.onRowClick = function ListAnScol_onRowClick (event)// @startlock
+	{// @endlock
+		$$('component1_bUpdate').hide();
+		$$('component1_btSup').hide();
+	};// @lock
+
+	ListCours.onRowDraw = function ListCours_onRowDraw (event)// @startlock
+	{// @endlock
+		var vAction = $$('component1_cAction').getValue();
+		
+		$$('component1_bUpdate').show();
+		$$('component1_btSup').show();
+		
+		$$('component1_shM').enable();
+		$$('component1_shM').setValues([sources.component1_coursCollection.hDeb,sources.component1_coursCollection.hFin]);
+		$$('component1_shAM').enable();
+		$$('component1_shAM').setValues([sources.component1_coursCollection.h2Deb,sources.component1_coursCollection.h2Fin]);
+		if (vAction === "-") {
+		  $$('component1_shM').disable();
+		  $$('component1_shAM').disable();
+		}
+	};// @lock
+
+	ListCours.onRowClick = function ListCours_onRowClick (event)// @startlock
+	{// @endlock
+		var vAction = $$('component1_cAction').getValue();
+		
+		$$('component1_bUpdate').show();
+		$$('component1_btSup').show();
+		
+		$$('component1_shM').enable();
+		$$('component1_shM').setValues([sources.component1_coursCollection.hDeb,sources.component1_coursCollection.hFin]);
+		$$('component1_shAM').enable();
+		$$('component1_shAM').setValues([sources.component1_coursCollection.h2Deb,sources.component1_coursCollection.h2Fin]);
+		if (vAction === "-") {
+		  $$('component1_shM').disable();
+		  $$('component1_shAM').disable();
+		}
+	};// @lock
+
+	btSup.click = function btSup_click (event)// @startlock
+	{// @endlock
+		var isok;
+		
+		isok = confirm( "Voulez-vous vraiment supprimer ce cours de cette année scolaire ?");
+		
+		if (isok) {
+			sources.component1_coursCollection.removeCurrent();
+		}
+
+	};// @lock
+
+	cDate.blur = function cDate_blur (event)// @startlock
+	{// @endlock
+		var vAction, DatEntry, NbSamDat, vAnScol, tmp_date, split_date, new_date,
+			LstJ = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+		
+		if ($$('component1_cDate').getValue().length > 0) {
+			
+			tmp_date = $$('component1_cDate').getValue();
+			split_date = tmp_date.split('/');
+			new_date = new Date(split_date[2], split_date[1]*1 - 1, split_date[0]*1);
+			vJour = new_date.getDay();
+			$$('component1_cJour').setValue(LstJ[vJour]);
+		
+			$$('component1_bSave').enable();
+			vAction = $$('component1_cAction').getValue();
+			if (vAction === "Créer") {
+				DatEntry = $$('component1_cDate').getValue();
+				vAnScol = sources.component1_annees_Scolaires.getAttributeValue("ID");
+				ds.Cours.query("dCours = :1 and Annee_Scolaire.ID = :2", { 
+					onSuccess:function(event) {
+						var myCollection = event.entityCollection;
+						NbSamDat = myCollection.length;
+						if (NbSamDat > 0) {
+							alert("Ce cours est déjà planifié pour cette année scolaire. Merci de choisir une date différente.");	
+							$$('component1_cdate').setValue(null);
+							$$('component1_bSave').disable();
+						}
+					}, params:[DatEntry, vAnScol] 
+				});
+			}
+		} else {
+			$$('component1_bSave').disable();
+		}
+	};// @lock
+
+	cDate.change = function cDate_change (event)// @startlock
+	{// @endlock
+		var vAction, DatEntry, NbSamDat, vAnScol, tmp_date, split_date, new_date,
+		LstJ = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+		
+		if ($$('component1_cDate').getValue().length > 0) {
+			
+			tmp_date = $$('component1_cDate').getValue();
+			split_date = tmp_date.split('/');
+			new_date = new Date(split_date[2], split_date[1]*1 - 1, split_date[0]*1);
+			vJour = new_date.getDay();
+			$$('component1_cJour').setValue(LstJ[vJour]);
+		
+			$$('component1_bSave').enable();
+			vAction = $$('component1_cAction').getValue();
+			if (vAction === "Créer") {
+				DatEntry = $$('component1_cDate').getValue();
+				vAnScol = sources.component1_annees_Scolaires.getAttributeValue("ID");
+				ds.Cours.query("dCours = :1 and Annee_Scolaire.ID = :2", { 
+					onSuccess:function(event) {
+						var myCollection = event.entityCollection;
+						NbSamDat = myCollection.length;
+						if (NbSamDat > 0) {
+							alert("Ce cours est déjà planifié pour cette année scolaire. Merci de choisir une date différente.");	
+							$$('component1_cdate').setValue(null);
+							$$('component1_bSave').disable();
+						}
+					}, params:[DatEntry, vAnScol] 
+				});
+			}
+		} else {
+			$$('component1_bSave').disable();
+		}
+		
+		
+	};// @lock
 
 	cbxAM.click = function cbxAM_click (event)// @startlock
 	{// @endlock
@@ -104,6 +232,7 @@ function constructor (id) {
 		
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
+		$$('component1_btSup').hide();
 		$$('component1_ListAnScol').disable();
 		$$('component1_ListCours').disable();
 		$$('component1_bSave').show();
@@ -124,8 +253,9 @@ function constructor (id) {
 
 	bUndo.click = function bUndo_click (event)// @startlock
 	{// @endlock
-		$$('component1_bUpdate').show();
+		$$('component1_bUpdate').hide();
 		$$('component1_bNew').show();
+		$$('component1_btSup').hide();
 		$$('component1_ListAnScol').enable();
 		$$('component1_ListAnScol').setReadOnly(true);
 		$$('component1_ListCours').enable();
@@ -144,8 +274,12 @@ function constructor (id) {
 
 	bSave.click = function bSave_click (event)// @startlock
 	{// @endlock
-		$$('component1_bUpdate').show();
+		var vHor, split_date, new_date, tmp_date, vJour,
+			LstJ = ["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+		
+		$$('component1_bUpdate').hide();
 		$$('component1_bNew').show();
+		$$('component1_btSup').hide();
 		$$('component1_ListAnScol').enable();
 		$$('component1_ListAnScol').setReadOnly(true);
 		$$('component1_ListCours').enable();
@@ -158,6 +292,24 @@ function constructor (id) {
 		$$('component1_cDate').getLabel().setTextColor("black");
 		$$('component1_cAction').setValue("-");
 		
+		vHor="";
+		if($$('component1_cbxM').getValue()) {
+			vHor = $$('component1_tMDeb').getValue() + " à " + $$('component1_tMFin').getValue();
+		} 
+		if($$('component1_cbxAM').getValue()) {
+			if($$('component1_cbxM').getValue()) {
+				vHor += " et ";
+			}
+			vHor += $$('component1_tAMDeb').getValue() + " à " + $$('component1_tAMFin').getValue();
+		}
+		$$('component1_cHor').setValue(vHor);
+		
+		tmp_date = $$('component1_cDate').getValue();
+		split_date = tmp_date.split('/');
+		new_date = new Date(split_date[2], split_date[1]*1 - 1, split_date[0]*1);
+		vJour = new_date.getDay();
+		$$('component1_cJour').setValue(LstJ[vJour]);
+		
 		sources.component1_coursCollection.save({
                 onSuccess:function(event2) {}
             });
@@ -168,17 +320,35 @@ function constructor (id) {
 	{// @endlock
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
+		$$('component1_btSup').hide();
 		$$('component1_ListAnScol').disable();
 		$$('component1_ListCours').disable();
 		$$('component1_bSave').show();
-		$$('component1_bSave').enablee();
+		$$('component1_bSave').enable();
 		$$('component1_bUndo').show();
 		$$('component1_cDate').setReadOnly(true);
+		$$('component1_cMess').setReadOnly(false);
+		if($$('component1_cbxM').getValue()) {
+			$$('component1_shM').enable();
+		} else {
+			$$('component1_shM').disable();
+		}
+		if($$('component1_cbxAM').getValue()) {
+			$$('component1_shAM').enable();
+		} else {
+			$$('component1_shAM').disable();
+		}
 		$$('component1_cAction').setValue("Modifier");
 		
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_ListAnScol", "onRowClick", ListAnScol.onRowClick, "WAF");
+	WAF.addListener(this.id + "_ListCours", "onRowDraw", ListCours.onRowDraw, "WAF");
+	WAF.addListener(this.id + "_ListCours", "onRowClick", ListCours.onRowClick, "WAF");
+	WAF.addListener(this.id + "_cDate", "blur", cDate.blur, "WAF");
+	WAF.addListener(this.id + "_btSup", "click", btSup.click, "WAF");
+	WAF.addListener(this.id + "_cDate", "change", cDate.change, "WAF");
 	WAF.addListener(this.id + "_cbxAM", "click", cbxAM.click, "WAF");
 	WAF.addListener(this.id + "_cbxM", "click", cbxM.click, "WAF");
 	WAF.addListener(this.id + "_shAM", "slidechange", shAM.slidechange, "WAF");
