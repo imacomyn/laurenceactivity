@@ -1,0 +1,1 @@
+﻿model.Salles.events.onInit = function() {	this.Actif = true;};
