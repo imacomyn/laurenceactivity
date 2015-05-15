@@ -24,16 +24,18 @@ function constructor (id) {
 			v = "component1_m"+i;
 			$$(v).show();
 			$$(v).setBackgroundColor("#E5E5E5");
+			$$(v).setValue("-");
 			v = "component1_am"+i;
 			$$(v).show();
 			$$(v).setBackgroundColor("#E5E5E5");
+			$$(v).setValue("-");
 			
 		}
 		$$("component1_cExt").hide();
 		
 		vAnScol = $$("component1_cbAnScol").getValue();
 		sources.component1_calendrier.query("Annee_Scolaire.ID = :1 and sMois = :2", { onSuccess: function(event) {
-			var vdDeb, elem, ind, ibx, nb, vQuand, vBox, dbcl, jdbcl, vAnScol, split_date, dbcl, eps, vUserID, vNow, vToday;
+			var vdDeb, elem, ind, ibx, nb, vQuand, vBox, dbcl, jdbcl, vAnScol, split_date, dbcl, eps, vUserID, vNow, vToday, vQCours, vQStage;
 			elem = sources.component1_calendrier;
 			nb = 1+elem.nbj;
 			vQuand = elem.dDeb;
@@ -109,6 +111,14 @@ function constructor (id) {
 				vNow = new Date();
 				vToday = vNow.getDate() + '/' + (vNow.getMonth()+1) + '/' +  vNow.getFullYear();
 				vToday = addDaysToDate(vToday,0);
+				
+				if ($$("component1_cbxTout").getValue()) {
+					vQCours = "dCours = :1";
+					vQStage = "(dDeb = :1 or dFin = :1)";
+				} else {
+					vQCours = "dCours = :1 and Annee_Scolaire.ID = :2";
+					vQStage = "(dDeb = :1 or dFin = :1) and Annee_Scolaire.ID = :2";
+				}
 		
 				for (var j = ind; j < nb; j++) {
 					vBox = "component1_j"+ibx;
@@ -127,6 +137,54 @@ function constructor (id) {
 						} else {
 							$$(vBox).setBackgroundColor("#AAD4FF");
 						}
+						sources.component1_cours.query(vQCours, { onSuccess: function(event) {
+							var vco, vBox, iBox, vAssoc, vCoul;
+							iBox = event.userData.boxn;
+							vco = sources.component1_cours;
+							vAssoc = vco.getAttributeValue("Annee_Scolaire.Association.Sigle");
+							vCoul = vco.getAttributeValue("Annee_Scolaire.Association.CoulCode");
+							if (vco.length > 0) {
+								vco.getElement(0, { onSuccess: function(event)  {
+									var elem;
+									elem = event.element;
+									if (elem.HM) {
+										vBox = "component1_m"+iBox;
+										$$(vBox).setValue(vAssoc);
+										$$(vBox).setBackgroundColor(vCoul);
+									}
+									if (elem.HAM) {
+										vBox = "component1_am"+iBox;
+										$$(vBox).setValue(vAssoc);
+										$$(vBox).setBackgroundColor(vCoul);
+									}
+								}});
+							}
+							}, params:[dbcl, vAnScol], userData: {boxn:ibx}});
+							
+							sources.component1_stages.query(vQStage, { onSuccess: function(event) {
+							var vco, vBox, iBox, vAssoc, vCoul;
+							iBox = event.userData.boxn;
+							vco = sources.component1_stages;
+							vAssoc = "STAGE " + vco.getAttributeValue("Annee_Scolaire.Association.Sigle");
+							vCoul = "#FFAAFF";
+							if (vco.length > 0) {
+								vco.getElement(0, { onSuccess: function(event)  {
+									var elem;
+									elem = event.element;
+									if (elem.HM) {
+										vBox = "component1_m"+iBox;
+										$$(vBox).setValue(vAssoc);
+										$$(vBox).setBackgroundColor(vCoul);
+									}
+									if (elem.HAM) {
+										vBox = "component1_am"+iBox;
+										$$(vBox).setValue(vAssoc);
+										$$(vBox).setBackgroundColor(vCoul);
+									}
+								}});
+							}
+							}, params:[dbcl, vAnScol], userData: {boxn:ibx}});
+
 						ibx = ibx + 1;
 					//}
 					vdDeb = addDaysToDate(vdDeb, 1);
@@ -201,11 +259,21 @@ function constructor (id) {
 	}
 
 	// @region namespaceDeclaration// @startlock
+	var cbxTout = {};	// @checkbox
 	var cbAnScol = {};	// @combobox
 	var sPerS = {};	// @slider
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	cbxTout.click = function cbxTout_click (event)// @startlock
+	{// @endlock
+		var vCal, vSld, res;
+		vAnScol = $$("component1_cbAnScol").getValue();
+		vSld = $$("component1_sPerS").getValue();
+		sources.component1_calendrier.query("Annee_Scolaire.ID = :1 and sMois = :2", vAnScol, vSld);
+		res = ShowMonth(vSld);
+	};// @lock
 
 	cbAnScol.change = function cbAnScol_change (event)// @startlock
 	{// @endlock
@@ -229,6 +297,7 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_cbxTout", "click", cbxTout.click, "WAF");
 	WAF.addListener(this.id + "_cbAnScol", "change", cbAnScol.change, "WAF");
 	WAF.addListener(this.id + "_sPerS", "slidestop", sPerS.slidestop, "WAF");
 	WAF.addListener(this.id + "_sPerS", "slide", sPerS.slide, "WAF");
