@@ -12,11 +12,27 @@ function constructor (id) {
 
 	this.load = function (data) {// @lock
 		
+	var vUser;
 	$$("cchg").hide();
+	vUser = WAF.directory.currentUser().userName;
+	//alert(vUser);
+	sources.component1_eleves.query("Utilisateur.Login = :1", { onSuccess: function(event) { 
+			var vAssoc;
+			elem = sources.component1_eleves;
+			if (elem.length > 0) {
+				$$("component1_cbxTout").hide();
+				$$("component1_cRole").setValue("Elève");
+			} else {
+				$$("component1_cbxTout").show();
+				$$("component1_cRole").setValue("Autre");
+			};		
+	}, params:[vUser] });
+	
 	
 	function ShowMonth(vMois) {
 		
 		var vCal, vMois, split_date;
+		$$("cchg").show();
 		
 		for (var i = 0; i < 36; i++) {
 			v = "component1_j"+i;
@@ -212,6 +228,7 @@ function constructor (id) {
 					$$(v).hide();
 				}
 		}, params:[vAnScol, vMois] });
+		$$("cchg").hide();
 		
 		return('OK');
 	}
@@ -273,6 +290,7 @@ function constructor (id) {
 	}
 
 	// @region namespaceDeclaration// @startlock
+	var dataGrid1 = {};	// @dataGrid
 	var i1 = {};	// @icon
 	var i2 = {};	// @icon
 	var i3 = {};	// @icon
@@ -315,6 +333,17 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	dataGrid1.onRowDraw = function dataGrid1_onRowDraw (event)// @startlock
+	{// @endlock
+		var vAssoc;
+		elem = sources.component1_Association0;
+		vAssoc = elem.ID;
+		if (vAssoc !== null) {
+			sources.component1_annees_Scolaires.query("Association.ID = :1", vAssoc);
+		}
+					
+	};// @lock
 
 	i1.mouseover = function i1_mouseover (event)// @startlock
 	{// @endlock
@@ -723,7 +752,8 @@ function constructor (id) {
 
 	cbAnScol.change = function cbAnScol_change (event)// @startlock
 	{// @endlock
-		var vCal, res;
+		var vCal, res, vUser;
+		
 		vAnScol = $$("component1_cbAnScol").getValue();
 		sources.component1_calendrier.query("Annee_Scolaire.ID = :1 and sMois = :2", vAnScol, 1);
 		$$("component1_sPerS").setValue(1);
@@ -743,6 +773,7 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_dataGrid1", "onRowDraw", dataGrid1.onRowDraw, "WAF");
 	WAF.addListener(this.id + "_i1", "mouseover", i1.mouseover, "WAF");
 	WAF.addListener(this.id + "_i1", "mouseout", i1.mouseout, "WAF");
 	WAF.addListener(this.id + "_i2", "mouseover", i2.mouseover, "WAF");
