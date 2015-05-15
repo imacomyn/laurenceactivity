@@ -21,36 +21,13 @@ function constructor (id) {
 
 
 	// @region namespaceDeclaration// @startlock
-	var btSave = {};	// @button
 	var cemail = {};	// @textField
+	var btSave = {};	// @button
 	var cpswd1 = {};	// @textField
 	var cpswd0 = {};	// @textField
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
-
-	btSave.click = function btSave_click (event)// @startlock
-	{// @endlock
-		var vUser,vPswd, vName, cMail, rMail;
-		
-		vUser = WAF.directory.currentUser();
-		if (vUser != null) {
-			cMail = $$('component1_cemail').getValue();
-			rMail = $$('component1_remail').getValue();
-			$$('component1_rpswd').setValue($$('component1_cpswd0').getValue());
-			$$('component1_cAction').setValue("UpdPswd");
-			if (rMail.length === 0 && cMail.length > 0 && cMail.indexOf("@") > 0) {
-				$$('component1_remail').setValue(cMail);
-			}
-			sources.component1_utilisateurs.save();
-			alert("Mot de passe modifié");
-			$$('component1_btSave').show();
-			$$('component1_btSave').disable();
-		} else {
-			alert("Echec de modification de mot de passe. Contactez votre administrateur.");
-		}
-		
-	};// @lock
 
 	cemail.change = function cemail_change (event)// @startlock
 	{// @endlock
@@ -94,11 +71,33 @@ function constructor (id) {
 			$$('component1_btSave').disable();
 			vTxt  = vTxt + "L'adresse mail fournie est malformée. \n";
 		}
-		
 		if (rMail.length === 0 && cMail.length > 0 && cMail.indexOf("@") > 0) {
 			$$('component1_remail').setValue(cMail);
 		}
 		$$('component1_cctrl').setValue(vTxt);
+	};// @lock
+
+	btSave.click = function btSave_click (event)// @startlock
+	{// @endlock
+		var vUser,vPswd, vName, cMail, rMail;
+		
+		vUser = WAF.directory.currentUser();
+		if (vUser != null) {
+			cMail = $$('component1_cemail').getValue();
+			rMail = $$('component1_remail').getValue();
+			$$('component1_rpswd').setValue($$('component1_cpswd0').getValue());
+			$$('component1_cAction').setValue("UpdPswd");
+			if (rMail.length === 0 && cMail.length > 0 && cMail.indexOf("@") > 0) {
+				$$('component1_remail').setValue(cMail);
+			}
+			sources.component1_utilisateurs.save();
+			alert("Mot de passe modifié");
+			$$('component1_btSave').show();
+			$$('component1_btSave').disable();
+		} else {
+			alert("Echec de modification de mot de passe. Contactez votre administrateur.");
+		}
+		
 	};// @lock
 
 	cpswd1.change = function cpswd1_change (event)// @startlock
@@ -198,8 +197,8 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
-	WAF.addListener(this.id + "_btSave", "click", btSave.click, "WAF");
 	WAF.addListener(this.id + "_cemail", "change", cemail.change, "WAF");
+	WAF.addListener(this.id + "_btSave", "click", btSave.click, "WAF");
 	WAF.addListener(this.id + "_cpswd1", "change", cpswd1.change, "WAF");
 	WAF.addListener(this.id + "_cpswd0", "change", cpswd0.change, "WAF");
 	// @endregion// @endlock
