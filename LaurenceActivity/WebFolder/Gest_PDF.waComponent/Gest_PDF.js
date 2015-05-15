@@ -19,8 +19,15 @@ function constructor (id) {
 		
 	$$("cchg").hide();
 	$$("component1_ListPDF").setRowHeight(22);	
+	$$("component1_ListAbo").setRowHeight(22);
+	$$("component1_ListNIns").setRowHeight(22);
 
 	// @region namespaceDeclaration// @startlock
+	var ListAbo = {};	// @dataGrid
+	var ListPDF = {};	// @dataGrid
+	var btSup = {};	// @buttonImage
+	var ListNIns = {};	// @dataGrid
+	var btIns = {};	// @buttonImage
 	var btClose = {};	// @buttonImage
 	var btShow = {};	// @buttonImage
 	var cNom = {};	// @textField
@@ -32,6 +39,81 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	ListAbo.onRowClick = function ListAbo_onRowClick (event)// @startlock
+	{// @endlock
+		$$('component1_btSup').show();
+		$$('component1_btIns').hide();
+	};// @lock
+
+	ListPDF.onRowClick = function ListPDF_onRowClick (event)// @startlock
+	{// @endlock
+		var vAnScol, vToday,vUser;
+		
+		$$('component1_btSup').hide();
+		$$('component1_btIns').hide();
+				
+		vToday = new Date();
+		sources.component1_eleves1.query("( Utilisateur.Date_Sortie = null or Utilisateur.Date_Sortie > :1 ) order by Nom_Complet",vToday);
+	};// @lock
+
+	btSup.click = function btSup_click (event)// @startlock
+	{// @endlock
+		var isok;
+		
+		isok = confirm( "Voulez-vous vraiment supprimer l'abonnement de cet élève à ce cours PDF ?");
+		
+		if (isok) {
+			sources.component1_abonnesCollection.removeCurrent();
+			$$('component1_btSup').hide();
+		}
+	};// @lock
+
+	ListNIns.onRowClick = function ListNIns_onRowClick (event)// @startlock
+	{// @endlock
+		$$('component1_btIns').show();
+		$$('component1_btSup').hide();
+
+	};// @lock
+
+	btIns.click = function btIns_click (event)// @startlock
+	{// @endlock
+		var myInscrits, nbInscrits, vIdIns, vIdAbo, myAbonnes, nbAbonnes, nbTrouve, inscrit, abonne, vFlag;
+		
+		//$$('component1_cAction').setValue("AddUsr");
+		myInscrits = sources.component1_eleves1;
+		vIdIns = myInscrits.getAttributeValue("Eleve.ID");
+		//alert('traite inscrit '+vIdIns);
+		myAbonnes = sources.component1_abonnesCollection;
+		nbAbonnes = myAbonnes.length;
+		vFlag = true;
+		for (var j = 0; j < nbAbonnes; j++) {
+			myAbonnes.getElement(j, { onSuccess: function(event) {
+				abonne = event.element;
+				vIdAbo = abonne.getAttributeValue("Eleve.ID");
+				//alert('Compare Inscrit ' + vIdIns + ' avec abonné ' + vIdAbo);
+				if (vIdAbo === vIdIns) {
+					//alert ('Inscrit trouvé chez les abonnés');
+					vFlag = false;
+				}
+			}});
+		}
+		if (vFlag) {
+			sources.component1_eleves.query("ID = :1", { onSuccess: function(event) { 
+				var vCount = sources.component1_eleves.length;
+				if(vCount === 1) {
+					sources.component1_abonnesCollection.addNewElement();
+					sources.component1_abonnesCollection.Cours.set(sources.component1_cours_PDF);
+					sources.component1_abonnesCollection.Eleve.set(sources.component1_eleves);
+					sources.component1_abonnesCollection.save();
+				}
+			}, params:[vIdIns] });
+		};
+		
+		$$('component1_btIns').hide();
+		
+
+	};// @lock
 
 	btClose.click = function btClose_click (event)// @startlock
 	{// @endlock
@@ -197,6 +279,11 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_ListAbo", "onRowClick", ListAbo.onRowClick, "WAF");
+	WAF.addListener(this.id + "_ListPDF", "onRowClick", ListPDF.onRowClick, "WAF");
+	WAF.addListener(this.id + "_btSup", "click", btSup.click, "WAF");
+	WAF.addListener(this.id + "_ListNIns", "onRowClick", ListNIns.onRowClick, "WAF");
+	WAF.addListener(this.id + "_btIns", "click", btIns.click, "WAF");
 	WAF.addListener(this.id + "_btClose", "click", btClose.click, "WAF");
 	WAF.addListener(this.id + "_btShow", "click", btShow.click, "WAF");
 	WAF.addListener(this.id + "_cNom", "change", cNom.change, "WAF");
