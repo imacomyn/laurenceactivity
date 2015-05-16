@@ -25,36 +25,43 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 
 	menuItem3.click = function menuItem3_click (event)// @startlock
 	{// @endlock
+		
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Cal.waComponent");
 	};// @lock
 
 	menuItem18.click = function menuItem18_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_InStages.waComponent");
 	};// @lock
 
 	menuItem11.click = function menuItem11_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Cal.waComponent");
 	};// @lock
 
 	menuItem17.click = function menuItem17_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Stages.waComponent");
 	};// @lock
 
 	menuItem16.click = function menuItem16_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Cours.waComponent");
 	};// @lock
 
 	menuItem15.click = function menuItem15_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Inscriptions.waComponent");
 	};// @lock
@@ -67,47 +74,56 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 
 	menuItem13.click = function menuItem13_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_PDF.waComponent");
 	};// @lock
 
 	M_About.click = function M_About_click (event)// @startlock
 	{// @endlock
+		
+		$$("intro").hide();
 		$$('component1').loadComponent("/Apropos.waComponent");
 	};// @lock
 
 	menuItem9.click = function menuItem9_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Associations.waComponent");
 	};// @lock
 
 	menuItem14.click = function menuItem14_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/UpdPsw.waComponent");
 	};// @lock
 
 	menuItem2.click = function menuItem2_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/UpdPsw.waComponent");
 	};// @lock
 
 	menuItem7.click = function menuItem7_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest-Eleves.waComponent");
 	};// @lock
 
 	menuItem6.click = function menuItem6_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Utilisateurs.waComponent");
 	};// @lock
 
 	menuItem8.click = function menuItem8_click (event)// @startlock
 	{// @endlock
+		$$("intro").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Calendrier.waComponent");
 	};// @lock
