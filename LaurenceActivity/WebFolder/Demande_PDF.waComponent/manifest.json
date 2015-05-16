@@ -1,0 +1,6 @@
+{
+    "name"    : "Demande_PDF",    
+    "html"    : "Demande_PDF.html",
+    "styles"  : [],
+    "scripts" : ["Demande_PDF.js"]
+}
