@@ -15,6 +15,7 @@ function constructor (id) {
 	$$("cchg").hide();
 	$$("component1_ListCP").setRowHeight(20);
 	$$("component1_ListSP").setRowHeight(20);
+	sources.component1_annees_Scolaires.query("ID > 0 Order by Annee_Scolaire desc");
 
 	// @region namespaceDeclaration// @startlock
 	var btCalc = {};	// @buttonImage

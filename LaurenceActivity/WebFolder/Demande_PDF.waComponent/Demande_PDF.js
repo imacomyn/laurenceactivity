@@ -16,8 +16,11 @@ function constructor (id) {
 	$$("component1_ListPDF").setRowHeight(22);	
 	$$("component1_ListDem").setRowHeight(22);	
 	sources.component1_demande_PDF.query("Etat = 'Demandé' order by Date_Creation desc");
+	sources.component1_cours_PDF.query("ID > 0 Order by Nom");
 
 	// @region namespaceDeclaration// @startlock
+	var cbfCat = {};	// @combobox
+	var cbxFiltre = {};	// @checkbox
 	var btUndo = {};	// @button
 	var btSave = {};	// @button
 	var ListDem = {};	// @dataGrid
@@ -33,6 +36,36 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	cbfCat.change = function cbfCat_change (event)// @startlock
+	{// @endlock
+		var vQuery;
+		if ($$('component1_cbfCat').getValue() === "Meuble Carton") {
+			vQuery = "Categorie = 'Meuble*' Order by Nom";
+		} else {
+			vQuery = "Categorie = '" + $$('component1_cbfCat').getValue() + "' Order by Nom";
+		}
+		sources.component1_cours_PDF.query(vQuery);
+		
+	};// @lock
+
+	cbxFiltre.click = function cbxFiltre_click (event)// @startlock
+	{// @endlock
+		var vQuery;
+		if ($$('component1_cbxFiltre').getValue()) {
+			$$('component1_cbfCat').show();
+			if ($$('component1_cbfCat').getValue() === "Meuble Carton") {
+				vQuery = "Categorie = 'Meuble*' Order by Nom";
+			} else {
+				vQuery = "Categorie = '" + $$('component1_cbfCat').getValue() + "' Order by Nom";
+			}
+		} else {
+			$$('component1_cbfCat').hide();
+			vQuery = "ID > 0 Order by Nom";
+		}
+		sources.component1_cours_PDF.query(vQuery);
+		
+	};// @lock
 
 	btUndo.click = function btUndo_click (event)// @startlock
 	{// @endlock
@@ -210,6 +243,8 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_cbfCat", "change", cbfCat.change, "WAF");
+	WAF.addListener(this.id + "_cbxFiltre", "click", cbxFiltre.click, "WAF");
 	WAF.addListener(this.id + "_btUndo", "click", btUndo.click, "WAF");
 	WAF.addListener(this.id + "_btSave", "click", btSave.click, "WAF");
 	WAF.addListener(this.id + "_ListDem", "onRowClick", ListDem.onRowClick, "WAF");

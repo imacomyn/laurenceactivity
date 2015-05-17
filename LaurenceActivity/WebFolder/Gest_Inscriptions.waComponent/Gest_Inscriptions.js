@@ -20,6 +20,7 @@ function constructor (id) {
 	$$('component1_cbxT1').disable();
 	$$('component1_cbxT2').disable();
 	$$('component1_cbxT3').disable();
+	sources.component1_annees_Scolaires.query("ID > 0 Order by Annee_Scolaire desc");
 
 	// @region namespaceDeclaration// @startlock
 	var btExport = {};	// @buttonImage

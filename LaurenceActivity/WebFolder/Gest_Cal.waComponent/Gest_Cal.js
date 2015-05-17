@@ -16,6 +16,7 @@ function constructor (id) {
 	$$("cchg").hide();
 	vUser = WAF.directory.currentUser().userName;
 	//alert(vUser);
+	sources.component1_annees_Scolaires.query("ID > 0 Order by Annee_Scolaire desc");
 	sources.component1_eleves.query("Utilisateur.Login = :1", { onSuccess: function(event) { 
 			var vAssoc;
 			elem = sources.component1_eleves;

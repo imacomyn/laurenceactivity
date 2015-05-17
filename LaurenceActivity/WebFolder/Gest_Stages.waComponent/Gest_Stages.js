@@ -19,6 +19,7 @@ function constructor (id) {
 		$$('component1_shAM').disable();	
 		$$('component1_cbxM').disable();	
 		$$('component1_cbxAM').disable();	
+		sources.component1_annees_Scolaires.query("ID > 0 Order by Annee_Scolaire desc");
 		
 		function convTime (Horaire) {
 		

@@ -18,6 +18,7 @@ function constructor (id) {
 		
 	$$("cchg").hide();
 	$$("component1_ListInscriptions").setRowHeight(20);
+	sources.component1_eleves.query("ID > 0 Order by Nom_Complet");
 
 	// @region namespaceDeclaration// @startlock
 	var btExport = {};	// @buttonImage
@@ -60,9 +61,9 @@ function constructor (id) {
 	{// @endlock
 		if ($$('component1_cbPres').getValue()) {
 			var now = new Date();
-			sources.component1_eleves.query("Utilisateur.Date_Entree < :1 AND (Utilisateur.Date_Sortie = null OR Utilisateur.Date_Sortie > :1)", now);
+			sources.component1_eleves.query("Utilisateur.Date_Entree < :1 AND (Utilisateur.Date_Sortie = null OR Utilisateur.Date_Sortie > :1) Order by Nom_Complet", now);
 		} else {
-			sources.component1_eleves.query();
+			sources.component1_eleves.query("ID > 0 Order by Nom_Complet");
 		}
 	};// @lock
 
