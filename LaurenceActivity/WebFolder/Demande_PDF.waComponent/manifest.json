@@ -1,6 +1,1 @@
-{
-    "name"    : "Demande_PDF",    
-    "html"    : "Demande_PDF.html",
-    "styles"  : [],
-    "scripts" : ["Demande_PDF.js"]
-}
+﻿{"name":"Demande_PDF","html":"Demande_PDF.html","scripts":["Demande_PDF.js"],"styles":["Demande_PDF.css"]}
