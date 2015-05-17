@@ -46,7 +46,11 @@ function constructor (id) {
 	cbfCat.change = function cbfCat_change (event)// @startlock
 	{// @endlock
 		var vQuery;
-		vQuery = "Categorie = '" + $$('component1_cbfCat').getValue() + "' Order by Nom";
+		if ($$('component1_cbfCat').getValue() === "Meuble Carton") {
+			vQuery = "Categorie = 'Meuble*' Order by Nom";
+		} else {
+			vQuery = "Categorie = '" + $$('component1_cbfCat').getValue() + "' Order by Nom";
+		}
 		sources.component1_cours_PDF.query(vQuery);
 		
 	};// @lock
@@ -56,7 +60,11 @@ function constructor (id) {
 		var vQuery;
 		if ($$('component1_cbxFiltre').getValue()) {
 			$$('component1_cbfCat').show();
-			vQuery = "Categorie = '" + $$('component1_cbfCat').getValue() + "' Order by Nom";
+			if ($$('component1_cbfCat').getValue() === "Meuble Carton") {
+				vQuery = "Categorie = 'Meuble*' Order by Nom";
+			} else {
+				vQuery = "Categorie = '" + $$('component1_cbfCat').getValue() + "' Order by Nom";
+			}
 		} else {
 			$$('component1_cbfCat').hide();
 			vQuery = "ID > 0 Order by Nom";
