@@ -16,6 +16,7 @@ function constructor (id) {
 		$$("component1_ListActu").setRowHeight(22);
 
 	// @region namespaceDeclaration// @startlock
+	var cFram5 = {};	// @image
 	var cFram3 = {};	// @image
 	var cFram4 = {};	// @image
 	var cFram2 = {};	// @image
@@ -30,13 +31,35 @@ function constructor (id) {
 
 	// eventHandlers// @lock
 
+	cFram5.click = function cFram5_click (event)// @startlock
+	{// @endlock
+		$$('component1_cPhoto').move(20,168);
+		$$('component1_cPhoto').resize(295,150);
+		$$('component1_cPhoto').show();
+		$$('component1_cPhoto2').move(321,168);
+		$$('component1_cPhoto2').resize(295,150);
+		$$('component1_cPhoto2').show();
+		$$('component1_cComm').hide();
+		$$('component1_uPhoto').show();
+		$$('component1_uPhoto2').show();
+		$$('component1_cTitre').move(20,140);
+		$$('component1_cTitre').resize(596,22);
+		$$('component1_cTitre').show();
+		$$('component1_cDesc').move(20,324);
+		$$('component1_cDesc').resize(596,80);
+		$$('component1_cDesc').show();
+		$$('component1_cFrame').setValue("Frame5");
+	};// @lock
+
 	cFram3.click = function cFram3_click (event)// @startlock
 	{// @endlock
 		$$('component1_cPhoto').move(20,168);
 		$$('component1_cPhoto').resize(596,150);
 		$$('component1_cPhoto').show();
+		$$('component1_cPhoto2').hide();
 		$$('component1_cComm').hide();
-		$$('component1_uPhoto').hide();
+		$$('component1_uPhoto').show();
+		$$('component1_uPhoto2').hide();
 		$$('component1_cTitre').move(20,140);
 		$$('component1_cTitre').resize(596,22);
 		$$('component1_cTitre').show();
@@ -49,8 +72,10 @@ function constructor (id) {
 	cFram4.click = function cFram4_click (event)// @startlock
 	{// @endlock
 		$$('component1_cPhoto').hide();
+		$$('component1_cPhoto2').hide();
 		$$('component1_cComm').hide();
 		$$('component1_uPhoto').hide();
+		$$('component1_uPhoto2').hide();
 		$$('component1_cTitre').move(20,140);
 		$$('component1_cTitre').resize(596,22);
 		$$('component1_cTitre').show();
@@ -65,10 +90,12 @@ function constructor (id) {
 		$$('component1_cPhoto').move(376,140);
 		$$('component1_cPhoto').resize(240,200);
 		$$('component1_cPhoto').show();
+		$$('component1_cPhoto2').hide();
 		$$('component1_cComm').move(376,343);
 		$$('component1_cComm').resize(240,21);
 		$$('component1_cComm').show();
 		$$('component1_uPhoto').show();
+		$$('component1_uPhoto2').hide();
 		$$('component1_cTitre').move(20,140);
 		$$('component1_cTitre').resize(350,22);
 		$$('component1_cTitre').show();
@@ -83,10 +110,12 @@ function constructor (id) {
 		$$('component1_cPhoto').move(20,140);
 		$$('component1_cPhoto').resize(240,200);
 		$$('component1_cPhoto').show();
+		$$('component1_cPhoto2').hide();
 		$$('component1_cComm').move(20,343);
 		$$('component1_cComm').resize(240,21);
 		$$('component1_cComm').show();
 		$$('component1_uPhoto').show();
+		$$('component1_uPhoto2').hide();
 		$$('component1_cTitre').move(266,140);
 		$$('component1_cTitre').resize(350,22);
 		$$('component1_cTitre').show();
@@ -99,8 +128,96 @@ function constructor (id) {
 
 	ListActu.onRowClick = function ListActu_onRowClick (event)// @startlock
 	{// @endlock
+		var vFrame;
+		
 		$$('component1_btSup').show();
 		$$('component1_bUpdate').show();
+		
+		vFrame = $$('component1_cFrame').getValue();
+		
+		if (vFrame === "Frame1") {
+			$$('component1_cPhoto').move(20,140);
+			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').move(20,343);
+			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').show();
+			$$('component1_uPhoto').hide();
+			$$('component1_uPhoto2').hide();
+			$$('component1_cTitre').move(266,140);
+			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(266,168);
+			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame2") {
+			$$('component1_cPhoto').move(376,140);
+			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').move(376,343);
+			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').show();
+			$$('component1_uPhoto').hide();
+			$$('component1_uPhoto2').hide();
+			$$('component1_cTitre').move(20,140);
+			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(20,168);
+			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame3") {
+			$$('component1_cPhoto').move(20,168);
+			$$('component1_cPhoto').resize(596,150);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').hide();
+			$$('component1_uPhoto').hide();
+			$$('component1_uPhoto2').hide();
+			$$('component1_cTitre').move(20,140);
+			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(20,324);
+			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame4") {
+			$$('component1_cPhoto').hide();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').hide();
+			$$('component1_uPhoto').hide();
+			$$('component1_uPhoto2').hide();
+			$$('component1_cTitre').move(20,140);
+			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(20,168);
+			$$('component1_cDesc').resize(596,196);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame5") {
+			$$('component1_cPhoto').move(20,168);
+			$$('component1_cPhoto').resize(295,150);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').move(321,168);
+			$$('component1_cPhoto2').resize(295,150);
+			$$('component1_cPhoto2').show();
+			$$('component1_cComm').hide();
+			$$('component1_uPhoto').hide();
+			$$('component1_uPhoto2').hide();
+			$$('component1_cTitre').move(20,140);
+			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(20,324);
+			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').show();
+		}
 	};// @lock
 
 	btSup.click = function btSup_click (event)// @startlock
@@ -137,6 +254,7 @@ function constructor (id) {
 		$$('component1_cFram2').show();
 		$$('component1_cFram3').show();
 		$$('component1_cFram4').show();
+		$$('component1_cFram5').show();
 		$$('component1_uPhoto').show();
 		$$('component1_cbAnScol').show();
 		$$('component1_cAction').setValue("Créer");
@@ -160,6 +278,7 @@ function constructor (id) {
 		$$('component1_cFram2').hide();
 		$$('component1_cFram3').hide();
 		$$('component1_cFram4').hide();
+		$$('component1_cFram5').hide();
 		$$('component1_uPhoto').hide();
 		$$('component1_cbAnScol').hide();
 		$$('component1_cAction').setValue("-");
@@ -186,6 +305,7 @@ function constructor (id) {
 		$$('component1_cFram2').hide();
 		$$('component1_cFram3').hide();
 		$$('component1_cFram4').hide();
+		$$('component1_cFram5').hide();
 		$$('component1_uPhoto').hide();
 		$$('component1_cbAnScol').hide();
 		$$('component1_cAction').setValue("-");
@@ -214,6 +334,7 @@ function constructor (id) {
 		$$('component1_cFram2').show();
 		$$('component1_cFram3').show();
 		$$('component1_cFram4').show();
+		$$('component1_cFram5').show();
 		$$('component1_uPhoto').show();
 		$$('component1_cbAnScol').show();
 		$$('component1_cAction').setValue("Modifier");
@@ -227,10 +348,12 @@ function constructor (id) {
 			$$('component1_cPhoto').move(20,140);
 			$$('component1_cPhoto').resize(240,200);
 			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').move(20,343);
 			$$('component1_cComm').resize(240,21);
 			$$('component1_cComm').show();
 			$$('component1_uPhoto').show();
+			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(266,140);
 			$$('component1_cTitre').resize(350,22);
 			$$('component1_cTitre').show();
@@ -243,10 +366,12 @@ function constructor (id) {
 			$$('component1_cPhoto').move(376,140);
 			$$('component1_cPhoto').resize(240,200);
 			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').move(376,343);
 			$$('component1_cComm').resize(240,21);
 			$$('component1_cComm').show();
 			$$('component1_uPhoto').show();
+			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
 			$$('component1_cTitre').resize(350,22);
 			$$('component1_cTitre').show();
@@ -259,8 +384,10 @@ function constructor (id) {
 			$$('component1_cPhoto').move(20,168);
 			$$('component1_cPhoto').resize(596,150);
 			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').hide();
-			$$('component1_uPhoto').hide();
+			$$('component1_uPhoto').show();
+			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
 			$$('component1_cTitre').resize(596,22);
 			$$('component1_cTitre').show();
@@ -271,8 +398,10 @@ function constructor (id) {
 		
 		if (vFrame === "Frame4") {
 			$$('component1_cPhoto').hide();
+			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').hide();
 			$$('component1_uPhoto').hide();
+			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
 			$$('component1_cTitre').resize(596,22);
 			$$('component1_cTitre').show();
@@ -281,9 +410,29 @@ function constructor (id) {
 			$$('component1_cDesc').show();
 		}
 		
+		if (vFrame === "Frame5") {
+			$$('component1_cPhoto').move(20,168);
+			$$('component1_cPhoto').resize(295,150);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').move(321,168);
+			$$('component1_cPhoto2').resize(295,150);
+			$$('component1_cPhoto2').show();
+			$$('component1_cComm').hide();
+			$$('component1_uPhoto').show();
+			$$('component1_uPhoto2').show();
+			$$('component1_cTitre').move(20,140);
+			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(20,324);
+			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').show();
+		}
+		
+				
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_cFram5", "click", cFram5.click, "WAF");
 	WAF.addListener(this.id + "_cFram3", "click", cFram3.click, "WAF");
 	WAF.addListener(this.id + "_cFram4", "click", cFram4.click, "WAF");
 	WAF.addListener(this.id + "_cFram2", "click", cFram2.click, "WAF");
