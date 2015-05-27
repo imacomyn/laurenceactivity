@@ -16,6 +16,12 @@ function constructor (id) {
 		$$("component1_ListActu").setRowHeight(22);
 
 	// @region namespaceDeclaration// @startlock
+	var btImaRep = {};	// @buttonImage
+	var ListRep = {};	// @dataGrid
+	var btSupRep = {};	// @buttonImage
+	var btNewRep = {};	// @buttonImage
+	var btRep = {};	// @buttonImage
+	var btSaveRep = {};	// @buttonImage
 	var cFram5 = {};	// @image
 	var cFram3 = {};	// @image
 	var cFram4 = {};	// @image
@@ -30,6 +36,213 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	btImaRep.click = function btImaRep_click (event)// @startlock
+	{// @endlock
+		$$('component1_uRep').show();
+		$$('component1_btImaRep').hide();
+		$$('component1_btSupRep').hide();
+		$$('component1_btNewRep').hide();
+		$$('component1_btSaveRep').show();
+	};// @lock
+
+	ListRep.onRowClick = function ListRep_onRowClick (event)// @startlock
+	{// @endlock
+		$$('component1_btSupRep').show();
+		$$('component1_btImaRep').show();
+	};// @lock
+
+	btSupRep.click = function btSupRep_click (event)// @startlock
+	{// @endlock
+		var isok, vID;
+		
+		isok = confirm( "Voulez-vous vraiment supprimer cette photo du reportage ?");
+		
+		if (isok) {
+			sources.component1_reportage.removeCurrent();
+			$$('component1_btSupRep').hide();
+			$$('component1_btImaRep').hide();
+		}
+
+	};// @lock
+
+	btNewRep.click = function btNewRep_click (event)// @startlock
+	{// @endlock
+		$$('component1_btSupRep').hide();
+		$$('component1_btNewRep').hide();
+		$$('component1_btSaveRep').show();
+		//$$('component1_uRep').show();
+		$$('component1_rComm').setReadOnly(false);
+		$$('component1_ListRep').disable();
+		
+		sources.component1_reportage.addNewElement();
+		sources.component1_reportage.Information.set(sources.component1_informations);
+		// sources.component1_reportage.save();
+
+	};// @lock
+
+	btRep.click = function btRep_click (event)// @startlock
+	{// @endlock
+		var vFrame;
+		
+		if ($$('component1_cbxRep').getValue()) {
+			$$('component1_rComm').hide();
+			$$('component1_rPhoto').hide();
+			$$('component1_ListRep').hide();
+			$$('component1_btSupRep').hide();
+			$$('component1_btNewRep').hide();
+			$$('component1_btImaRep').hide();
+			$$('component1_btSaveRep').hide();
+			$$('component1_uRep').hide();
+			$$('component1_cbxRep').uncheck();
+			$$('component1_bUpdate').hide();
+			$$('component1_bNew').show();
+			$$('component1_btSup').hide();
+			$$('component1_btRep').hide();
+			$$('component1_ListActu').enable();
+			$$('component1_ListActu').setReadOnly(true);
+			$$('component1_bSave').hide();
+			$$('component1_bUndo').hide();
+			$$('component1_cTitre').setReadOnly(true);
+			$$('component1_cDesc').setReadOnly(true);
+			$$('component1_cComm').setReadOnly(true);
+			$$('component1_cDatFin').setReadOnly(true);
+			$$('component1_cFram1').hide();
+			$$('component1_cFram2').hide();
+			$$('component1_cFram3').hide();
+			$$('component1_cFram4').hide();
+			$$('component1_cFram5').hide();
+			$$('component1_uPhoto').hide();
+			$$('component1_cbAnScol').hide();
+			
+			vFrame = $$('component1_cFrame').getValue();
+		
+			if (vFrame === "Frame1") {
+				$$('component1_cPhoto').move(20,140);
+				$$('component1_cPhoto').resize(240,200);
+				$$('component1_cPhoto').show();
+				$$('component1_cPhoto2').hide();
+				$$('component1_cComm').move(20,343);
+				$$('component1_cComm').resize(240,21);
+				$$('component1_cComm').show();
+				$$('component1_uPhoto').hide();
+				$$('component1_uPhoto2').hide();
+				$$('component1_cTitre').move(266,140);
+				$$('component1_cTitre').resize(350,22);
+				$$('component1_cTitre').show();
+				$$('component1_cDesc').move(266,168);
+				$$('component1_cDesc').resize(350,196);
+				$$('component1_cDesc').show();
+			}
+		
+			if (vFrame === "Frame2") {
+				$$('component1_cPhoto').move(376,140);
+				$$('component1_cPhoto').resize(240,200);
+				$$('component1_cPhoto').show();
+				$$('component1_cPhoto2').hide();
+				$$('component1_cComm').move(376,343);
+				$$('component1_cComm').resize(240,21);
+				$$('component1_cComm').show();
+				$$('component1_uPhoto').hide();
+				$$('component1_uPhoto2').hide();
+				$$('component1_cTitre').move(20,140);
+				$$('component1_cTitre').resize(350,22);
+				$$('component1_cTitre').show();
+				$$('component1_cDesc').move(20,168);
+				$$('component1_cDesc').resize(350,196);
+				$$('component1_cDesc').show();
+			}
+		
+			if (vFrame === "Frame3") {
+				$$('component1_cPhoto').move(20,168);
+				$$('component1_cPhoto').resize(596,150);
+				$$('component1_cPhoto').show();
+				$$('component1_cPhoto2').hide();
+				$$('component1_cComm').hide();
+				$$('component1_uPhoto').hide();
+				$$('component1_uPhoto2').hide();
+				$$('component1_cTitre').move(20,140);
+				$$('component1_cTitre').resize(596,22);
+				$$('component1_cTitre').show();
+				$$('component1_cDesc').move(20,324);
+				$$('component1_cDesc').resize(596,80);
+				$$('component1_cDesc').show();
+			}
+		
+			if (vFrame === "Frame4") {
+				$$('component1_cPhoto').hide();
+				$$('component1_cPhoto2').hide();
+				$$('component1_cComm').hide();
+				$$('component1_uPhoto').hide();
+				$$('component1_uPhoto2').hide();
+				$$('component1_cTitre').move(20,140);
+				$$('component1_cTitre').resize(596,22);
+				$$('component1_cTitre').show();
+				$$('component1_cDesc').move(20,168);
+				$$('component1_cDesc').resize(596,196);
+				$$('component1_cDesc').show();
+			}
+		
+			if (vFrame === "Frame5") {
+				$$('component1_cPhoto').move(20,168);
+				$$('component1_cPhoto').resize(295,150);
+				$$('component1_cPhoto').show();
+				$$('component1_cPhoto2').move(321,168);
+				$$('component1_cPhoto2').resize(295,150);
+				$$('component1_cPhoto2').show();
+				$$('component1_cComm').hide();
+				$$('component1_uPhoto').hide();
+				$$('component1_uPhoto2').hide();
+				$$('component1_cTitre').move(20,140);
+				$$('component1_cTitre').resize(596,22);
+				$$('component1_cTitre').show();
+				$$('component1_cDesc').move(20,324);
+				$$('component1_cDesc').resize(596,80);
+				$$('component1_cDesc').show();
+			}
+			
+			
+		} else {
+			$$('component1_rComm').show();
+			$$('component1_rComm').setReadOnly(true);
+			$$('component1_rPhoto').show();
+			$$('component1_ListRep').show();
+			$$('component1_btNewRep').show();
+			$$('component1_btSupRep').hide();
+			$$('component1_btSaveRep').hide();
+			$$('component1_cbxRep').check();
+			$$('component1_bUpdate').hide();
+			$$('component1_bNew').hide();
+			$$('component1_btSup').hide();
+			$$('component1_ListActu').disable();
+			$$('component1_ListRep').enable();
+			$$('component1_ListRep').setReadOnly(true);
+			$$('component1_bSave').hide();
+			$$('component1_bUndo').hide();
+			$$('component1_cComm').hide();
+			$$('component1_cPhoto').hide();
+			$$('component1_cDesc').hide();
+			$$('component1_cTitre').hide();
+			$$('component1_cPhoto2').hide();
+		}	
+
+	};// @lock
+
+	btSaveRep.click = function btSaveRep_click (event)// @startlock
+	{// @endlock
+		
+		$$('component1_btSupRep').hide();
+		$$('component1_btSaveRep').hide();
+		$$('component1_uRep').hide();
+		$$('component1_rComm').setReadOnly(true);
+		$$('component1_btNewRep').show();
+		
+		sources.component1_reportage.save();
+		
+		$$('component1_ListRep').enable();
+		$$('component1_ListRep').setReadOnly(true);
+		
+	};// @lock
 
 	cFram5.click = function cFram5_click (event)// @startlock
 	{// @endlock
@@ -128,10 +341,11 @@ function constructor (id) {
 
 	ListActu.onRowClick = function ListActu_onRowClick (event)// @startlock
 	{// @endlock
-		var vFrame;
+		var vFrame, vInfoID;
 		
 		$$('component1_btSup').show();
 		$$('component1_bUpdate').show();
+		$$('component1_btRep').show();
 		
 		vFrame = $$('component1_cFrame').getValue();
 		
@@ -218,6 +432,9 @@ function constructor (id) {
 			$$('component1_cDesc').resize(596,80);
 			$$('component1_cDesc').show();
 		}
+		
+		vInfoID = sources.component1_informations.ID;
+		sources.component1_reportage.query("Information.ID = :1 order by Commentaire",vInfoID);
 	};// @lock
 
 	btSup.click = function btSup_click (event)// @startlock
@@ -243,6 +460,8 @@ function constructor (id) {
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
 		$$('component1_btSup').hide();
+		$$('component1_btRep').hide();
+		$$('component1_cbxRep').uncheck();
 		$$('component1_ListActu').disable();
 		$$('component1_bSave').show();
 		$$('component1_bUndo').show();
@@ -266,6 +485,8 @@ function constructor (id) {
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').show();
 		$$('component1_btSup').hide();
+		$$('component1_btRep').hide();
+		$$('component1_cbxRep').uncheck();
 		$$('component1_ListActu').enable();
 		$$('component1_ListActu').setReadOnly(true);
 		$$('component1_bSave').hide();
@@ -293,6 +514,8 @@ function constructor (id) {
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').show();
 		$$('component1_btSup').hide();
+		$$('component1_btRep').hide();
+		$$('component1_cbxRep').uncheck();
 		$$('component1_ListActu').enable();
 		$$('component1_cTitre').setReadOnly(true);
 		$$('component1_cDesc').setReadOnly(true);
@@ -322,6 +545,8 @@ function constructor (id) {
 		$$('component1_bUpdate').hide();
 		$$('component1_bNew').hide();
 		$$('component1_btSup').hide();
+		$$('component1_btRep').hide();
+		$$('component1_cbxRep').uncheck();
 		$$('component1_ListActu').disable();
 		$$('component1_bSave').show();
 		$$('component1_bSave').enable();
@@ -432,6 +657,12 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_btImaRep", "click", btImaRep.click, "WAF");
+	WAF.addListener(this.id + "_ListRep", "onRowClick", ListRep.onRowClick, "WAF");
+	WAF.addListener(this.id + "_btSupRep", "click", btSupRep.click, "WAF");
+	WAF.addListener(this.id + "_btNewRep", "click", btNewRep.click, "WAF");
+	WAF.addListener(this.id + "_btRep", "click", btRep.click, "WAF");
+	WAF.addListener(this.id + "_btSaveRep", "click", btSaveRep.click, "WAF");
 	WAF.addListener(this.id + "_cFram5", "click", cFram5.click, "WAF");
 	WAF.addListener(this.id + "_cFram3", "click", cFram3.click, "WAF");
 	WAF.addListener(this.id + "_cFram4", "click", cFram4.click, "WAF");

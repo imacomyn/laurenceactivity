@@ -14,18 +14,82 @@ function constructor (id) {
 		
 		var vUser;
 		$$("cchg").hide();
-		$$('component1_cLect').setValue("Stop");
 		vUser = WAF.directory.currentUser().userName;
 		//alert(vUser);
 		sources.component1_eleves.query("Utilisateur.Login = :1", vUser);
 
 	// @region namespaceDeclaration// @startlock
+	var ListRep = {};	// @dataGrid
+	var rPrev = {};	// @image
+	var rNext = {};	// @image
+	var btRep = {};	// @image
 	var image2 = {};	// @image
 	var image1 = {};	// @image
 	var ListAssoc = {};	// @dataGrid
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	ListRep.onRowDraw = function ListRep_onRowDraw (event)// @startlock
+	{// @endlock
+		var vRep;
+		elem = sources.component1_reportageCollection;
+		if (elem.length > 0) {
+			$$('component1_btRep').show();
+			$$('component1_rCount').setValue(elem.length);
+			$$('component1_rPos').setValue(0);
+		} else {
+			$$('component1_btRep').hide();
+		}
+	};// @lock
+
+	rPrev.click = function rPrev_click (event)// @startlock
+	{// @endlock
+		var vPos, vCount;
+		
+		vPos = parseInt($$('component1_rPos').getValue(),10);
+		vCount = parseInt($$('component1_rCount').getValue(),10);
+		vPos -= 1;
+		if (vPos < 0) {
+			vPos = vCount-1;
+		}
+		$$('component1_ListRep').setSelectedRows([vPos]);
+		$$('component1_rPos').setValue(vPos);
+		
+	};// @lock
+
+	rNext.click = function rNext_click (event)// @startlock
+	{// @endlock
+		var vPos, vCount;
+		
+		vPos = parseInt($$('component1_rPos').getValue(),10);
+		vCount = parseInt($$('component1_rCount').getValue(),10);
+		vPos += 1;
+		if (vPos >= vCount) {
+			vPos = 0;
+		}
+		$$('component1_ListRep').setSelectedRows([vPos]);
+		$$('component1_rPos').setValue(vPos);
+		
+				
+	};// @lock
+
+	btRep.click = function btRep_click (event)// @startlock
+	{// @endlock
+			if ($$('component1_cbxRep').getValue()) {
+				$$('component1_rNext').hide();
+				$$('component1_rPrev').hide();
+				$$('component1_rPhoto').hide();
+				$$('component1_rComm').hide();
+				$$('component1_cbxRep').uncheck();
+			} else {
+				$$('component1_rNext').show();
+				$$('component1_rPrev').show();
+				$$('component1_rPhoto').show();
+				$$('component1_rComm').show();
+				$$('component1_cbxRep').check();
+			}	
+	};// @lock
 
 	image2.click = function image2_click (event)// @startlock
 	{// @endlock
@@ -39,6 +103,12 @@ function constructor (id) {
 		}
 		$$('component1_ListActu').setSelectedRows([vPos]);
 		$$('component1_cPos').setValue(vPos);
+		$$('component1_btRep').hide();
+		$$('component1_rNext').hide();
+		$$('component1_rPrev').hide();
+		$$('component1_rPhoto').hide();
+		$$('component1_rComm').hide();
+		$$('component1_cbxRep').uncheck();
 		
 		var vFrame;
 		
@@ -132,6 +202,12 @@ function constructor (id) {
 		}
 		$$('component1_ListActu').setSelectedRows([vPos]);
 		$$('component1_cPos').setValue(vPos);
+		$$('component1_btRep').hide();
+		$$('component1_rNext').hide();
+		$$('component1_rPrev').hide();
+		$$('component1_rPhoto').hide();
+		$$('component1_rComm').hide();
+		$$('component1_cbxRep').uncheck();
 		
 		var vFrame;
 		
@@ -230,6 +306,10 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_ListRep", "onRowDraw", ListRep.onRowDraw, "WAF");
+	WAF.addListener(this.id + "_rPrev", "click", rPrev.click, "WAF");
+	WAF.addListener(this.id + "_rNext", "click", rNext.click, "WAF");
+	WAF.addListener(this.id + "_btRep", "click", btRep.click, "WAF");
 	WAF.addListener(this.id + "_image2", "click", image2.click, "WAF");
 	WAF.addListener(this.id + "_image1", "click", image1.click, "WAF");
 	WAF.addListener(this.id + "_ListAssoc", "onRowDraw", ListAssoc.onRowDraw, "WAF");
