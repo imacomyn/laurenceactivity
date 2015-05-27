@@ -2,162 +2,362 @@
 WAF.onAfterInit = function onAfterInit() {// @lock
 
 // @region namespaceDeclaration// @startlock
-	var menuItem5 = {};	// @menuItem
-	var menuItem12 = {};	// @menuItem
-	var menuItem19 = {};	// @menuItem
-	var menuItem4 = {};	// @menuItem
-	var menuItem3 = {};	// @menuItem
-	var menuItem18 = {};	// @menuItem
-	var menuItem11 = {};	// @menuItem
-	var menuItem17 = {};	// @menuItem
-	var menuItem16 = {};	// @menuItem
-	var menuItem15 = {};	// @menuItem
-	var menuItem10 = {};	// @menuItem
-	var menuItem13 = {};	// @menuItem
-	var M_About = {};	// @menuItem
-	var menuItem9 = {};	// @menuItem
-	var menuItem14 = {};	// @menuItem
-	var menuItem2 = {};	// @menuItem
-	var menuItem7 = {};	// @menuItem
-	var menuItem6 = {};	// @menuItem
-	var menuItem8 = {};	// @menuItem
+	var btMesPDF = {};	// @buttonImage
+	var btNews = {};	// @buttonImage
+	var btMesInfos = {};	// @buttonImage
+	var btInStage = {};	// @buttonImage
+	var btStage = {};	// @buttonImage
+	var btCours = {};	// @buttonImage
+	var btAssoc = {};	// @buttonImage
+	var btAnScol = {};	// @buttonImage
+	var btInscrits = {};	// @buttonImage
+	var btCalendar = {};	// @buttonImage
+	var btaPropos = {};	// @buttonImage
+	var btPswd = {};	// @buttonImage
+	var btDemPDF = {};	// @buttonImage
+	var btPDF = {};	// @buttonImage
+	var btCal = {};	// @buttonImage
+	var btActu = {};	// @buttonImage
+	var btStudent = {};	// @buttonImage
+	var btUser = {};	// @buttonImage
 	var documentEvent = {};	// @document
 	var W_Login = {};	// @login
 // @endregion// @endlock
 
 // eventHandlers// @lock
 
-	menuItem5.click = function menuItem5_click (event)// @startlock
+	btMesPDF.mouseover = function btMesPDF_mouseover (event)// @startlock
 	{// @endlock
-		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Mes_Actualites.waComponent");
+		$$("cHelp").setValue("(Mes PDF)  Voir la liste des cours PDF auxquels je suis abonnée. Visualiser et imprimer le cours. Effectuer une demande d'abonnement à un cours.");
+		$$("cHelp").show();
 	};// @lock
 
-	menuItem12.click = function menuItem12_click (event)// @startlock
+	btMesPDF.mouseout = function btMesPDF_mouseout (event)// @startlock
 	{// @endlock
-		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Gest_Actualites.waComponent");
+		$$("cHelp").hide();
 	};// @lock
 
-	menuItem19.click = function menuItem19_click (event)// @startlock
+	btMesPDF.click = function btMesPDF_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Demande_PDF.waComponent");
-	};// @lock
-
-	menuItem4.click = function menuItem4_click (event)// @startlock
-	{// @endlock
-		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Mes_Cours.waComponent");
 	};// @lock
 
-	menuItem3.click = function menuItem3_click (event)// @startlock
+	btNews.mouseover = function btNews_mouseover (event)// @startlock
 	{// @endlock
-		
-		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Gest_Cal.waComponent");
+		$$("cHelp").setValue("(Mes Actualités) Consulter les dernières actualités de cartonnage, expositions, évènements ... etc.");
+		$$("cHelp").show();
 	};// @lock
 
-	menuItem18.click = function menuItem18_click (event)// @startlock
+	btNews.mouseout = function btNews_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btNews.click = function btNews_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Mes_Actualites.waComponent");
+	};// @lock
+
+	btMesInfos.mouseover = function btMesInfos_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Fiche Information)  Gérer ma fiche personnelle d'informations.");
+		$$("cHelp").show();
+	};// @lock
+
+	btMesInfos.mouseout = function btMesInfos_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btInStage.click = function btInStage_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_InStages.waComponent");
 	};// @lock
 
-	menuItem11.click = function menuItem11_click (event)// @startlock
+	btInStage.mouseover = function btInStage_mouseover (event)// @startlock
 	{// @endlock
-		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Gest_Cal.waComponent");
+		$$("cHelp").setValue("(Inscriptions Stage) Inscrire des élèves aux stages existants. Annuler une inscription.");
+		$$("cHelp").show();
 	};// @lock
 
-	menuItem17.click = function menuItem17_click (event)// @startlock
+	btInStage.mouseout = function btInStage_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btStage.click = function btStage_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Stages.waComponent");
 	};// @lock
 
-	menuItem16.click = function menuItem16_click (event)// @startlock
+	btStage.mouseover = function btStage_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Stages) Créer de nouveaux stages pour une année scolaire. Gérer les dates de stages et passer de l'information aux élèves.");
+		$$("cHelp").show();
+	};// @lock
+
+	btStage.mouseout = function btStage_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btCours.click = function btCours_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Cours.waComponent");
 	};// @lock
 
-	menuItem15.click = function menuItem15_click (event)// @startlock
+	btCours.mouseover = function btCours_mouseover (event)// @startlock
 	{// @endlock
-		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Gest_Inscriptions.waComponent");
+		$$("cHelp").setValue("(Cours) Créer de nouveaux cours pour une année scolaire. Gérer les horaires et enregistrer des consignes pour les élèves.");
+		$$("cHelp").show();
 	};// @lock
 
-	menuItem10.click = function menuItem10_click (event)// @startlock
+	btCours.mouseout = function btCours_mouseout (event)// @startlock
 	{// @endlock
-		$$("cchg").show();
-		$$('component1').loadComponent("/Gest_AnScol.waComponent");
+		$$("cHelp").hide();
 	};// @lock
 
-	menuItem13.click = function menuItem13_click (event)// @startlock
+	btAssoc.click = function btAssoc_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Gest_PDF.waComponent");
-	};// @lock
-
-	M_About.click = function M_About_click (event)// @startlock
-	{// @endlock
-		
-		$$("intro").hide();
-		$$('component1').loadComponent("/Apropos.waComponent");
-	};// @lock
-
-	menuItem9.click = function menuItem9_click (event)// @startlock
-	{// @endlock
-		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest_Associations.waComponent");
 	};// @lock
 
-	menuItem14.click = function menuItem14_click (event)// @startlock
+	btAssoc.mouseover = function btAssoc_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Associations) Créer de nouvelles associations et gérer leurs propriétés.");
+		$$("cHelp").show();
+	};// @lock
+
+	btAssoc.mouseout = function btAssoc_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btAnScol.click = function btAnScol_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_AnScol.waComponent");
+	};// @lock
+
+	btAnScol.mouseover = function btAnScol_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Années Scolaires) Ouvrir une nouvelle année scolaire pour chaque association et gérer les propriétés comme les cotisations trimestrielles.");
+		$$("cHelp").show();
+	};// @lock
+
+	btAnScol.mouseout = function btAnScol_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btInscrits.click = function btInscrits_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_Inscriptions.waComponent");
+	};// @lock
+
+	btInscrits.mouseover = function btInscrits_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Inscriptions) Inscrire les élèves sur une nouvelle année scolaire.");
+		$$("cHelp").show();
+	};// @lock
+
+	btInscrits.mouseout = function btInscrits_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btCalendar.click = function btCalendar_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Calendrier.waComponent");
+	};// @lock
+
+	btCalendar.mouseover = function btCalendar_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Calendriers) Définir les différents mois d'une année scolaire et leurs propriétés.");
+		$$("cHelp").show();
+	};// @lock
+
+	btCalendar.mouseout = function btCalendar_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btaPropos.click = function btaPropos_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("intro").hide();
+		$$('component1').loadComponent("/Apropos.waComponent");
+	};// @lock
+
+	btaPropos.mouseover = function btaPropos_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(A propos) Informations sur le développement de l'application ALT-C.");
+		$$("cHelp").show();
+	};// @lock
+
+	btaPropos.mouseout = function btaPropos_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btPswd.click = function btPswd_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/UpdPsw.waComponent");
 	};// @lock
 
-	menuItem2.click = function menuItem2_click (event)// @startlock
+	btPswd.mouseover = function btPswd_mouseover (event)// @startlock
 	{// @endlock
-		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/UpdPsw.waComponent");
+		$$("cHelp").setValue("(Mot de Passe) Modifier son mot de passe.");
+		$$("cHelp").show();
 	};// @lock
 
-	menuItem7.click = function menuItem7_click (event)// @startlock
+	btPswd.mouseout = function btPswd_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btDemPDF.click = function btDemPDF_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Demande_PDF.waComponent");
+	};// @lock
+
+	btDemPDF.mouseover = function btDemPDF_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Demandes Cours PDF) Voir les demandes de mise à disposition de cours PDF formulées par les élèves.");
+		$$("cHelp").show();
+	};// @lock
+
+	btDemPDF.mouseout = function btDemPDF_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btPDF.click = function btPDF_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_PDF.waComponent");
+	};// @lock
+
+	btPDF.mouseover = function btPDF_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Cours PDF) Gérer la liste des cours PDF disponibles et les abonnements des élèves à ce cours.");
+		$$("cHelp").show();
+	};// @lock
+
+	btPDF.mouseout = function btPDF_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btCal.click = function btCal_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_Cal.waComponent");
+	};// @lock
+
+	btCal.mouseover = function btCal_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Planning) Visualiser le planning mensuel des cours et des stages d'une année scolaire.");
+		$$("cHelp").show();
+	};// @lock
+
+	btCal.mouseout = function btCal_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btActu.click = function btActu_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Gest_Actualites.waComponent");
+	};// @lock
+
+	btActu.mouseover = function btActu_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Actualités) Créer des actualités/évènements pour une année scolaire comme l'annonce d'une exposition.");
+		$$("cHelp").show();
+	};// @lock
+
+	btActu.mouseout = function btActu_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btStudent.click = function btStudent_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
 		$$('component1').loadComponent("/Gest-Eleves.waComponent");
 	};// @lock
 
-	menuItem6.click = function menuItem6_click (event)// @startlock
+	btStudent.mouseout = function btStudent_mouseout (event)// @startlock
 	{// @endlock
-		$$("intro").hide();
-		$$("cchg").show();
-		$$('component1').loadComponent("/Gest_Utilisateurs.waComponent");
+		$$("cHelp").hide();
 	};// @lock
 
-	menuItem8.click = function menuItem8_click (event)// @startlock
+	btStudent.mouseover = function btStudent_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Elèves) Gérer les informations relatives à mes élèves.");
+		$$("cHelp").show();
+	};// @lock
+
+	btUser.mouseout = function btUser_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btUser.mouseover = function btUser_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Utilisateurs) Créer de nouveaux utilisateurs dans l'application et gérer leurs propriétés.");
+		$$("cHelp").show();
+	};// @lock
+
+	btUser.click = function btUser_click (event)// @startlock
 	{// @endlock
 		$$("intro").hide();
+		$$("cHelp").hide();
 		$$("cchg").show();
-		$$('component1').loadComponent("/Calendrier.waComponent");
+		$$('component1').loadComponent("/Gest_Utilisateurs.waComponent");
 	};// @lock
 
 	documentEvent.onLoad = function documentEvent_onLoad (event)// @startlock
@@ -168,22 +368,64 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		 } else {
 		 	
 		 	if (waf.directory.currentUserBelongsTo("Elève")) {
-				$$('M_Invite').hide();
-				$$('M_Professeur').hide();
-				$$('M_Admin').hide();
+				$$('btNews').enable();
+				$$('btMesPDF').enable();
+				$$('btMesInfos').enable();
+				$$('btCours').disable();
+				$$('btStage').disable();
+				$$('btInStage').disable();
+				$$('btActu').disable();
+				$$('btCal').enable();
+				$$('btPDF').disable();
+				$$('btDemPDF').disable();
+				$$('btUser').disable();
+				$$('btStudent').disable();
+				$$('btAssoc').disable();
+				$$('btAnScol').disable();
+				$$('btInscrits').disable();
+				$$('btCalendar').disable();
+				$$('btPswd').enable();
 			}
 			if (waf.directory.currentUserBelongsTo("Professeur")) {
 
-				$$('M_Invite').hide();
-				$$('M_Eleve').hide();
-				$$('M_Admin').hide();
+				$$('btNews').disbale();
+				$$('btMesPDF').disable();
+				$$('btMesInfos').disable();
+				$$('btCours').enable();
+				$$('btStage').enable();
+				$$('btInStage').enable();
+				$$('btActu').enable();
+				$$('btCal').enable();
+				$$('btPDF').enable();
+				$$('btDemPDF').enable();
+				$$('btUser').disable();
+				$$('btStudent').enable();
+				$$('btAssoc').enable();
+				$$('btAnScol').enable();
+				$$('btInscrits').enable();
+				$$('btCalendar').disable();
+				$$('btPswd').enable();
 				
 			}
 			if (waf.directory.currentUserBelongsTo("Invité")) {
 
-				$$('M_Professeur').hide();
-				$$('M_Eleve').hide();
-				$$('M_Admin').hide();
+				$$('btNews').disable();
+				$$('btMesPDF').disable();
+				$$('btMesInfos').disable();
+				$$('btCours').disable();
+				$$('btStage').disable();
+				$$('btInStage').disable();
+				$$('btActu').disable();
+				$$('btCal').disable();
+				$$('btPDF').disable();
+				$$('btDemPDF').disable();
+				$$('btUser').disable();
+				$$('btStudent').disable();
+				$$('btAssoc').disable();
+				$$('btAnScol').disable();
+				$$('btInscrits').disable();
+				$$('btCalendar').disable();
+				$$('btPswd').disable();
 				
 			}
 			
@@ -210,25 +452,59 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
-	WAF.addListener("menuItem5", "click", menuItem5.click, "WAF");
-	WAF.addListener("menuItem12", "click", menuItem12.click, "WAF");
-	WAF.addListener("menuItem19", "click", menuItem19.click, "WAF");
-	WAF.addListener("menuItem4", "click", menuItem4.click, "WAF");
-	WAF.addListener("menuItem3", "click", menuItem3.click, "WAF");
-	WAF.addListener("menuItem18", "click", menuItem18.click, "WAF");
-	WAF.addListener("menuItem11", "click", menuItem11.click, "WAF");
-	WAF.addListener("menuItem17", "click", menuItem17.click, "WAF");
-	WAF.addListener("menuItem16", "click", menuItem16.click, "WAF");
-	WAF.addListener("menuItem15", "click", menuItem15.click, "WAF");
-	WAF.addListener("menuItem10", "click", menuItem10.click, "WAF");
-	WAF.addListener("menuItem13", "click", menuItem13.click, "WAF");
-	WAF.addListener("M_About", "click", M_About.click, "WAF");
-	WAF.addListener("menuItem9", "click", menuItem9.click, "WAF");
-	WAF.addListener("menuItem14", "click", menuItem14.click, "WAF");
-	WAF.addListener("menuItem2", "click", menuItem2.click, "WAF");
-	WAF.addListener("menuItem7", "click", menuItem7.click, "WAF");
-	WAF.addListener("menuItem6", "click", menuItem6.click, "WAF");
-	WAF.addListener("menuItem8", "click", menuItem8.click, "WAF");
+	WAF.addListener("btMesPDF", "mouseover", btMesPDF.mouseover, "WAF");
+	WAF.addListener("btMesPDF", "mouseout", btMesPDF.mouseout, "WAF");
+	WAF.addListener("btMesPDF", "click", btMesPDF.click, "WAF");
+	WAF.addListener("btNews", "mouseover", btNews.mouseover, "WAF");
+	WAF.addListener("btNews", "mouseout", btNews.mouseout, "WAF");
+	WAF.addListener("btNews", "click", btNews.click, "WAF");
+	WAF.addListener("btMesInfos", "mouseover", btMesInfos.mouseover, "WAF");
+	WAF.addListener("btMesInfos", "mouseout", btMesInfos.mouseout, "WAF");
+	WAF.addListener("btDemPDF", "click", btDemPDF.click, "WAF");
+	WAF.addListener("btPDF", "click", btPDF.click, "WAF");
+	WAF.addListener("btCal", "click", btCal.click, "WAF");
+	WAF.addListener("btActu", "click", btActu.click, "WAF");
+	WAF.addListener("btInStage", "click", btInStage.click, "WAF");
+	WAF.addListener("btStage", "click", btStage.click, "WAF");
+	WAF.addListener("btCours", "click", btCours.click, "WAF");
+	WAF.addListener("btPswd", "click", btPswd.click, "WAF");
+	WAF.addListener("btaPropos", "click", btaPropos.click, "WAF");
+	WAF.addListener("btInStage", "mouseover", btInStage.mouseover, "WAF");
+	WAF.addListener("btInStage", "mouseout", btInStage.mouseout, "WAF");
+	WAF.addListener("btStage", "mouseover", btStage.mouseover, "WAF");
+	WAF.addListener("btStage", "mouseout", btStage.mouseout, "WAF");
+	WAF.addListener("btCours", "mouseover", btCours.mouseover, "WAF");
+	WAF.addListener("btCours", "mouseout", btCours.mouseout, "WAF");
+	WAF.addListener("btCalendar", "click", btCalendar.click, "WAF");
+	WAF.addListener("btInscrits", "click", btInscrits.click, "WAF");
+	WAF.addListener("btAnScol", "click", btAnScol.click, "WAF");
+	WAF.addListener("btAssoc", "click", btAssoc.click, "WAF");
+	WAF.addListener("btStudent", "click", btStudent.click, "WAF");
+	WAF.addListener("btAssoc", "mouseover", btAssoc.mouseover, "WAF");
+	WAF.addListener("btAssoc", "mouseout", btAssoc.mouseout, "WAF");
+	WAF.addListener("btAnScol", "mouseover", btAnScol.mouseover, "WAF");
+	WAF.addListener("btAnScol", "mouseout", btAnScol.mouseout, "WAF");
+	WAF.addListener("btInscrits", "mouseover", btInscrits.mouseover, "WAF");
+	WAF.addListener("btInscrits", "mouseout", btInscrits.mouseout, "WAF");
+	WAF.addListener("btCalendar", "mouseover", btCalendar.mouseover, "WAF");
+	WAF.addListener("btCalendar", "mouseout", btCalendar.mouseout, "WAF");
+	WAF.addListener("btaPropos", "mouseover", btaPropos.mouseover, "WAF");
+	WAF.addListener("btaPropos", "mouseout", btaPropos.mouseout, "WAF");
+	WAF.addListener("btPswd", "mouseover", btPswd.mouseover, "WAF");
+	WAF.addListener("btPswd", "mouseout", btPswd.mouseout, "WAF");
+	WAF.addListener("btDemPDF", "mouseover", btDemPDF.mouseover, "WAF");
+	WAF.addListener("btDemPDF", "mouseout", btDemPDF.mouseout, "WAF");
+	WAF.addListener("btPDF", "mouseover", btPDF.mouseover, "WAF");
+	WAF.addListener("btPDF", "mouseout", btPDF.mouseout, "WAF");
+	WAF.addListener("btCal", "mouseover", btCal.mouseover, "WAF");
+	WAF.addListener("btCal", "mouseout", btCal.mouseout, "WAF");
+	WAF.addListener("btActu", "mouseover", btActu.mouseover, "WAF");
+	WAF.addListener("btActu", "mouseout", btActu.mouseout, "WAF");
+	WAF.addListener("btStudent", "mouseout", btStudent.mouseout, "WAF");
+	WAF.addListener("btStudent", "mouseover", btStudent.mouseover, "WAF");
+	WAF.addListener("btUser", "mouseout", btUser.mouseout, "WAF");
+	WAF.addListener("btUser", "mouseover", btUser.mouseover, "WAF");
+	WAF.addListener("btUser", "click", btUser.click, "WAF");
 	WAF.addListener("document", "onLoad", documentEvent.onLoad, "WAF");
 	WAF.addListener("W_Login", "logout", W_Login.logout, "WAF");
 	WAF.addListener("W_Login", "login", W_Login.login, "WAF");
