@@ -180,7 +180,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 
 	btInscrits.mouseover = function btInscrits_mouseover (event)// @startlock
 	{// @endlock
-		$$("cHelp").setValue("(Inscriptions) Inscrire les élèves sur une nouvelle année scolaire.");
+		$$("cHelp").setValue("(Inscriptions) Inscrire les élèves sur une nouvelle année scolaire. Suivre le règlement de l'adhésion et des trimestres. Exporter la liste des paiements.");
 		$$("cHelp").show();
 	};// @lock
 
@@ -337,7 +337,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 
 	btStudent.mouseover = function btStudent_mouseover (event)// @startlock
 	{// @endlock
-		$$("cHelp").setValue("(Elèves) Gérer les informations relatives à mes élèves.");
+		$$("cHelp").setValue("(Elèves) Gérer les informations relatives à mes élèves. Exporter la liste des élèves.");
 		$$("cHelp").show();
 	};// @lock
 
