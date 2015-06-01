@@ -119,53 +119,53 @@ function constructor (id) {
 		
 			if (vFrame === "Frame1") {
 				$$('component1_cPhoto').move(20,140);
-				$$('component1_cPhoto').resize(240,200);
+				$$('component1_cPhoto').resize(300,200);
 				$$('component1_cPhoto').show();
 				$$('component1_cPhoto2').hide();
 				$$('component1_cComm').move(20,343);
-				$$('component1_cComm').resize(240,21);
+				$$('component1_cComm').resize(300,21);
 				$$('component1_cComm').show();
 				$$('component1_uPhoto').hide();
 				$$('component1_uPhoto2').hide();
-				$$('component1_cTitre').move(266,140);
-				$$('component1_cTitre').resize(350,22);
+				$$('component1_cTitre').move(326,140);
+				$$('component1_cTitre').resize(290,22);
 				$$('component1_cTitre').show();
-				$$('component1_cDesc').move(266,168);
-				$$('component1_cDesc').resize(350,196);
+				$$('component1_cDesc').move(326,168);
+				$$('component1_cDesc').resize(290,196);
 				$$('component1_cDesc').show();
 			}
 		
 			if (vFrame === "Frame2") {
-				$$('component1_cPhoto').move(376,140);
-				$$('component1_cPhoto').resize(240,200);
+				$$('component1_cPhoto').move(316,140);
+				$$('component1_cPhoto').resize(300,200);
 				$$('component1_cPhoto').show();
 				$$('component1_cPhoto2').hide();
-				$$('component1_cComm').move(376,343);
-				$$('component1_cComm').resize(240,21);
+				$$('component1_cComm').move(316,343);
+				$$('component1_cComm').resize(300,21);
 				$$('component1_cComm').show();
 				$$('component1_uPhoto').hide();
 				$$('component1_uPhoto2').hide();
 				$$('component1_cTitre').move(20,140);
-				$$('component1_cTitre').resize(350,22);
+				$$('component1_cTitre').resize(290,22);
 				$$('component1_cTitre').show();
 				$$('component1_cDesc').move(20,168);
-				$$('component1_cDesc').resize(350,196);
+				$$('component1_cDesc').resize(290,196);
 				$$('component1_cDesc').show();
 			}
 		
 			if (vFrame === "Frame3") {
 				$$('component1_cPhoto').move(20,168);
-				$$('component1_cPhoto').resize(596,150);
+				$$('component1_cPhoto').resize(225,150);
 				$$('component1_cPhoto').show();
 				$$('component1_cPhoto2').hide();
 				$$('component1_cComm').hide();
 				$$('component1_uPhoto').hide();
 				$$('component1_uPhoto2').hide();
 				$$('component1_cTitre').move(20,140);
-				$$('component1_cTitre').resize(596,22);
+				$$('component1_cTitre').resize(225,22);
 				$$('component1_cTitre').show();
 				$$('component1_cDesc').move(20,324);
-				$$('component1_cDesc').resize(596,80);
+				$$('component1_cDesc').resize(225,80);
 				$$('component1_cDesc').show();
 			}
 		
@@ -185,19 +185,19 @@ function constructor (id) {
 		
 			if (vFrame === "Frame5") {
 				$$('component1_cPhoto').move(20,168);
-				$$('component1_cPhoto').resize(295,150);
+				$$('component1_cPhoto').resize(225,150);
 				$$('component1_cPhoto').show();
-				$$('component1_cPhoto2').move(321,168);
-				$$('component1_cPhoto2').resize(295,150);
+				$$('component1_cPhoto2').move(251,168);
+				$$('component1_cPhoto2').resize(225,150);
 				$$('component1_cPhoto2').show();
 				$$('component1_cComm').hide();
 				$$('component1_uPhoto').hide();
 				$$('component1_uPhoto2').hide();
 				$$('component1_cTitre').move(20,140);
-				$$('component1_cTitre').resize(596,22);
+				$$('component1_cTitre').resize(456,22);
 				$$('component1_cTitre').show();
 				$$('component1_cDesc').move(20,324);
-				$$('component1_cDesc').resize(596,80);
+				$$('component1_cDesc').resize(456,80);
 				$$('component1_cDesc').show();
 			}
 			
@@ -247,19 +247,19 @@ function constructor (id) {
 	cFram5.click = function cFram5_click (event)// @startlock
 	{// @endlock
 		$$('component1_cPhoto').move(20,168);
-		$$('component1_cPhoto').resize(295,150);
+		$$('component1_cPhoto').resize(225,150);
 		$$('component1_cPhoto').show();
-		$$('component1_cPhoto2').move(321,168);
-		$$('component1_cPhoto2').resize(295,150);
+		$$('component1_cPhoto2').move(251,168);
+		$$('component1_cPhoto2').resize(225,150);
 		$$('component1_cPhoto2').show();
 		$$('component1_cComm').hide();
 		$$('component1_uPhoto').show();
 		$$('component1_uPhoto2').show();
 		$$('component1_cTitre').move(20,140);
-		$$('component1_cTitre').resize(596,22);
+		$$('component1_cTitre').resize(456,22);
 		$$('component1_cTitre').show();
 		$$('component1_cDesc').move(20,324);
-		$$('component1_cDesc').resize(596,80);
+		$$('component1_cDesc').resize(456,80);
 		$$('component1_cDesc').show();
 		$$('component1_cFrame').setValue("Frame5");
 	};// @lock
@@ -267,17 +267,17 @@ function constructor (id) {
 	cFram3.click = function cFram3_click (event)// @startlock
 	{// @endlock
 		$$('component1_cPhoto').move(20,168);
-		$$('component1_cPhoto').resize(596,150);
+		$$('component1_cPhoto').resize(225,150);
 		$$('component1_cPhoto').show();
 		$$('component1_cPhoto2').hide();
 		$$('component1_cComm').hide();
 		$$('component1_uPhoto').show();
 		$$('component1_uPhoto2').hide();
 		$$('component1_cTitre').move(20,140);
-		$$('component1_cTitre').resize(596,22);
+		$$('component1_cTitre').resize(225,22);
 		$$('component1_cTitre').show();
 		$$('component1_cDesc').move(20,324);
-		$$('component1_cDesc').resize(596,80);
+		$$('component1_cDesc').resize(225,80);
 		$$('component1_cDesc').show();
 		$$('component1_cFrame').setValue("Frame3");
 	};// @lock
@@ -300,20 +300,20 @@ function constructor (id) {
 
 	cFram2.click = function cFram2_click (event)// @startlock
 	{// @endlock
-		$$('component1_cPhoto').move(376,140);
-		$$('component1_cPhoto').resize(240,200);
+		$$('component1_cPhoto').move(316,140);
+		$$('component1_cPhoto').resize(300,200);
 		$$('component1_cPhoto').show();
 		$$('component1_cPhoto2').hide();
-		$$('component1_cComm').move(376,343);
-		$$('component1_cComm').resize(240,21);
+		$$('component1_cComm').move(316,343);
+		$$('component1_cComm').resize(300,21);
 		$$('component1_cComm').show();
 		$$('component1_uPhoto').show();
 		$$('component1_uPhoto2').hide();
 		$$('component1_cTitre').move(20,140);
-		$$('component1_cTitre').resize(350,22);
+		$$('component1_cTitre').resize(290,22);
 		$$('component1_cTitre').show();
 		$$('component1_cDesc').move(20,168);
-		$$('component1_cDesc').resize(350,196);
+		$$('component1_cDesc').resize(290,196);
 		$$('component1_cDesc').show();
 		$$('component1_cFrame').setValue("Frame2");
 	};// @lock
@@ -321,19 +321,19 @@ function constructor (id) {
 	cFram1.click = function cFram1_click (event)// @startlock
 	{// @endlock
 		$$('component1_cPhoto').move(20,140);
-		$$('component1_cPhoto').resize(240,200);
+		$$('component1_cPhoto').resize(300,200);
 		$$('component1_cPhoto').show();
 		$$('component1_cPhoto2').hide();
 		$$('component1_cComm').move(20,343);
-		$$('component1_cComm').resize(240,21);
+		$$('component1_cComm').resize(300,21);
 		$$('component1_cComm').show();
 		$$('component1_uPhoto').show();
 		$$('component1_uPhoto2').hide();
-		$$('component1_cTitre').move(266,140);
-		$$('component1_cTitre').resize(350,22);
+		$$('component1_cTitre').move(326,140);
+		$$('component1_cTitre').resize(290,22);
 		$$('component1_cTitre').show();
-		$$('component1_cDesc').move(266,168);
-		$$('component1_cDesc').resize(350,196);
+		$$('component1_cDesc').move(326,168);
+		$$('component1_cDesc').resize(290,196);
 		$$('component1_cDesc').show();
 		$$('component1_cFrame').setValue("Frame1");
 		
@@ -351,53 +351,53 @@ function constructor (id) {
 		
 		if (vFrame === "Frame1") {
 			$$('component1_cPhoto').move(20,140);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').move(20,343);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
 			$$('component1_uPhoto').hide();
 			$$('component1_uPhoto2').hide();
-			$$('component1_cTitre').move(266,140);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').move(326,140);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
-			$$('component1_cDesc').move(266,168);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').move(326,168);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame2") {
-			$$('component1_cPhoto').move(376,140);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').move(316,140);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
-			$$('component1_cComm').move(376,343);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').move(316,343);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
 			$$('component1_uPhoto').hide();
 			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(20,168);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame3") {
 			$$('component1_cPhoto').move(20,168);
-			$$('component1_cPhoto').resize(596,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').hide();
 			$$('component1_uPhoto').hide();
 			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(225,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(20,324);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(225,80);
 			$$('component1_cDesc').show();
 		}
 		
@@ -417,19 +417,19 @@ function constructor (id) {
 		
 		if (vFrame === "Frame5") {
 			$$('component1_cPhoto').move(20,168);
-			$$('component1_cPhoto').resize(295,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
-			$$('component1_cPhoto2').move(321,168);
-			$$('component1_cPhoto2').resize(295,150);
+			$$('component1_cPhoto2').move(251,168);
+			$$('component1_cPhoto2').resize(225,150);
 			$$('component1_cPhoto2').show();
 			$$('component1_cComm').hide();
 			$$('component1_uPhoto').hide();
 			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(456,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(20,324);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(456,80);
 			$$('component1_cDesc').show();
 		}
 		
@@ -571,53 +571,53 @@ function constructor (id) {
 		
 		if (vFrame === "Frame1") {
 			$$('component1_cPhoto').move(20,140);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').move(20,343);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
 			$$('component1_uPhoto').show();
 			$$('component1_uPhoto2').hide();
-			$$('component1_cTitre').move(266,140);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').move(326,140);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
-			$$('component1_cDesc').move(266,168);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').move(326,168);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame2") {
-			$$('component1_cPhoto').move(376,140);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').move(316,140);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
-			$$('component1_cComm').move(376,343);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').move(316,343);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
 			$$('component1_uPhoto').show();
 			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(20,168);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame3") {
 			$$('component1_cPhoto').move(20,168);
-			$$('component1_cPhoto').resize(596,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').hide();
 			$$('component1_uPhoto').show();
 			$$('component1_uPhoto2').hide();
 			$$('component1_cTitre').move(20,140);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(225,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(20,324);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(225,80);
 			$$('component1_cDesc').show();
 		}
 		
@@ -637,19 +637,19 @@ function constructor (id) {
 		
 		if (vFrame === "Frame5") {
 			$$('component1_cPhoto').move(20,168);
-			$$('component1_cPhoto').resize(295,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
-			$$('component1_cPhoto2').move(321,168);
-			$$('component1_cPhoto2').resize(295,150);
+			$$('component1_cPhoto2').move(251,168);
+			$$('component1_cPhoto2').resize(225,150);
 			$$('component1_cPhoto2').show();
 			$$('component1_cComm').hide();
 			$$('component1_uPhoto').show();
 			$$('component1_uPhoto2').show();
 			$$('component1_cTitre').move(20,140);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(456,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(20,324);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(456,80);
 			$$('component1_cDesc').show();
 		}
 		

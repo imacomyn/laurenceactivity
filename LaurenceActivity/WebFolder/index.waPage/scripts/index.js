@@ -64,6 +64,14 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('component1').loadComponent("/Mes_Actualites.waComponent");
 	};// @lock
 
+	btMesInfos.click = function btMesInfos_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Mon_Profil.waComponent");
+	};// @lock
+
 	btMesInfos.mouseover = function btMesInfos_mouseover (event)// @startlock
 	{// @endlock
 		$$("cHelp").setValue("(Fiche Information)  Gérer ma fiche personnelle d'informations.");
@@ -452,6 +460,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
+	WAF.addListener("btMesInfos", "click", btMesInfos.click, "WAF");
 	WAF.addListener("btMesPDF", "mouseover", btMesPDF.mouseover, "WAF");
 	WAF.addListener("btMesPDF", "mouseout", btMesPDF.mouseout, "WAF");
 	WAF.addListener("btMesPDF", "click", btMesPDF.click, "WAF");

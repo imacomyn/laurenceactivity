@@ -19,6 +19,7 @@ function constructor (id) {
 		sources.component1_eleves.query("Utilisateur.Login = :1", vUser);
 
 	// @region namespaceDeclaration// @startlock
+	var ListActu = {};	// @dataGrid
 	var ListRep = {};	// @dataGrid
 	var rPrev = {};	// @image
 	var rNext = {};	// @image
@@ -29,6 +30,89 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	ListActu.onRowDraw = function ListActu_onRowDraw (event)// @startlock
+	{// @endlock
+		var vFrame;
+		vFrame = $$('component1_cFrame').getValue();
+		if (vFrame !== null) {
+			
+			if (vFrame === "Frame1") {
+			$$('component1_cPhoto').move(325,30);
+			$$('component1_cPhoto').resize(300,200);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').move(325,233);
+			$$('component1_cComm').resize(300,21);
+			$$('component1_cComm').show();
+			$$('component1_cTitre').move(631,30);
+			$$('component1_cTitre').resize(290,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(631,58);
+			$$('component1_cDesc').resize(290,196);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame2") {
+			$$('component1_cPhoto').move(621,30);
+			$$('component1_cPhoto').resize(300,200);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').move(621,233);
+			$$('component1_cComm').resize(300,21);
+			$$('component1_cComm').show();
+			$$('component1_cTitre').move(325,30);
+			$$('component1_cTitre').resize(290,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(325,58);
+			$$('component1_cDesc').resize(290,196);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame3") {
+			$$('component1_cPhoto').move(325,58);
+			$$('component1_cPhoto').resize(225,150);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').hide();
+			$$('component1_cTitre').move(325,30);
+			$$('component1_cTitre').resize(225,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(325,211);
+			$$('component1_cDesc').resize(225,80);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame4") {
+			$$('component1_cPhoto').hide();
+			$$('component1_cPhoto2').hide();
+			$$('component1_cComm').hide();
+			$$('component1_cTitre').move(325,30);
+			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(325,58);
+			$$('component1_cDesc').resize(596,196);
+			$$('component1_cDesc').show();
+		}
+		
+		if (vFrame === "Frame5") {
+			$$('component1_cPhoto').move(325,58);
+			$$('component1_cPhoto').resize(225,150);
+			$$('component1_cPhoto').show();
+			$$('component1_cPhoto2').move(556,58);
+			$$('component1_cPhoto2').resize(225,150);
+			$$('component1_cPhoto2').show();
+			$$('component1_cComm').hide();
+			$$('component1_cTitre').move(325,30);
+			$$('component1_cTitre').resize(456,22);
+			$$('component1_cTitre').show();
+			$$('component1_cDesc').move(325,211);
+			$$('component1_cDesc').resize(456,80);
+			$$('component1_cDesc').show();
+		}
+			
+		}
+	};// @lock
 
 	ListRep.onRowDraw = function ListRep_onRowDraw (event)// @startlock
 	{// @endlock
@@ -93,7 +177,7 @@ function constructor (id) {
 
 	image2.click = function image2_click (event)// @startlock
 	{// @endlock
-		var vPos, vCount;
+		var vPos, vCount, vFrame;
 		
 		vPos = parseInt($$('component1_cPos').getValue(),10);
 		vCount = parseInt($$('component1_cCount').getValue(),10);
@@ -110,53 +194,50 @@ function constructor (id) {
 		$$('component1_rComm').hide();
 		$$('component1_cbxRep').uncheck();
 		
-		var vFrame;
-		
 		vFrame = $$('component1_cFrame').getValue();
-		
 		if (vFrame === "Frame1") {
 			$$('component1_cPhoto').move(325,30);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').move(325,233);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
-			$$('component1_cTitre').move(571,30);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').move(631,30);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
-			$$('component1_cDesc').move(571,58);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').move(631,58);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame2") {
-			$$('component1_cPhoto').move(681,30);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').move(621,30);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
-			$$('component1_cComm').move(681,233);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').move(621,233);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
 			$$('component1_cTitre').move(325,30);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(325,58);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame3") {
 			$$('component1_cPhoto').move(325,58);
-			$$('component1_cPhoto').resize(596,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').hide();
 			$$('component1_cTitre').move(325,30);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(225,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(325,211);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(225,80);
 			$$('component1_cDesc').show();
 		}
 		
@@ -174,25 +255,26 @@ function constructor (id) {
 		
 		if (vFrame === "Frame5") {
 			$$('component1_cPhoto').move(325,58);
-			$$('component1_cPhoto').resize(295,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
-			$$('component1_cPhoto2').move(626,58);
-			$$('component1_cPhoto2').resize(295,150);
+			$$('component1_cPhoto2').move(556,58);
+			$$('component1_cPhoto2').resize(225,150);
 			$$('component1_cPhoto2').show();
 			$$('component1_cComm').hide();
 			$$('component1_cTitre').move(325,30);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(456,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(325,211);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(456,80);
 			$$('component1_cDesc').show();
 		}
+		
 
 	};// @lock
 
 	image1.click = function image1_click (event)// @startlock
 	{// @endlock
-		var vPos, vCount;
+		var vPos, vCount, vFrame;
 		
 		vPos = parseInt($$('component1_cPos').getValue(),10);
 		vCount = parseInt($$('component1_cCount').getValue(),10);
@@ -209,53 +291,50 @@ function constructor (id) {
 		$$('component1_rComm').hide();
 		$$('component1_cbxRep').uncheck();
 		
-		var vFrame;
-		
 		vFrame = $$('component1_cFrame').getValue();
-		
 		if (vFrame === "Frame1") {
 			$$('component1_cPhoto').move(325,30);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').move(325,233);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
-			$$('component1_cTitre').move(571,30);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').move(631,30);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
-			$$('component1_cDesc').move(571,58);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').move(631,58);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame2") {
-			$$('component1_cPhoto').move(681,30);
-			$$('component1_cPhoto').resize(240,200);
+			$$('component1_cPhoto').move(621,30);
+			$$('component1_cPhoto').resize(300,200);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
-			$$('component1_cComm').move(681,233);
-			$$('component1_cComm').resize(240,21);
+			$$('component1_cComm').move(621,233);
+			$$('component1_cComm').resize(300,21);
 			$$('component1_cComm').show();
 			$$('component1_cTitre').move(325,30);
-			$$('component1_cTitre').resize(350,22);
+			$$('component1_cTitre').resize(290,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(325,58);
-			$$('component1_cDesc').resize(350,196);
+			$$('component1_cDesc').resize(290,196);
 			$$('component1_cDesc').show();
 		}
 		
 		if (vFrame === "Frame3") {
 			$$('component1_cPhoto').move(325,58);
-			$$('component1_cPhoto').resize(596,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
 			$$('component1_cPhoto2').hide();
 			$$('component1_cComm').hide();
 			$$('component1_cTitre').move(325,30);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(225,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(325,211);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(225,80);
 			$$('component1_cDesc').show();
 		}
 		
@@ -273,19 +352,20 @@ function constructor (id) {
 		
 		if (vFrame === "Frame5") {
 			$$('component1_cPhoto').move(325,58);
-			$$('component1_cPhoto').resize(295,150);
+			$$('component1_cPhoto').resize(225,150);
 			$$('component1_cPhoto').show();
-			$$('component1_cPhoto2').move(626,58);
-			$$('component1_cPhoto2').resize(295,150);
+			$$('component1_cPhoto2').move(556,58);
+			$$('component1_cPhoto2').resize(225,150);
 			$$('component1_cPhoto2').show();
 			$$('component1_cComm').hide();
 			$$('component1_cTitre').move(325,30);
-			$$('component1_cTitre').resize(596,22);
+			$$('component1_cTitre').resize(456,22);
 			$$('component1_cTitre').show();
 			$$('component1_cDesc').move(325,211);
-			$$('component1_cDesc').resize(596,80);
+			$$('component1_cDesc').resize(456,80);
 			$$('component1_cDesc').show();
 		}
+		
 		
 	};// @lock
 
@@ -306,6 +386,7 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_ListActu", "onRowDraw", ListActu.onRowDraw, "WAF");
 	WAF.addListener(this.id + "_ListRep", "onRowDraw", ListRep.onRowDraw, "WAF");
 	WAF.addListener(this.id + "_rPrev", "click", rPrev.click, "WAF");
 	WAF.addListener(this.id + "_rNext", "click", rNext.click, "WAF");
