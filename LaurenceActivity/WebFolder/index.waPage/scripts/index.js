@@ -2,6 +2,7 @@
 WAF.onAfterInit = function onAfterInit() {// @lock
 
 // @region namespaceDeclaration// @startlock
+	var btFilm = {};	// @buttonImage
 	var btMesPDF = {};	// @buttonImage
 	var btNews = {};	// @buttonImage
 	var btMesInfos = {};	// @buttonImage
@@ -25,6 +26,25 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 // @endregion// @endlock
 
 // eventHandlers// @lock
+
+	btFilm.mouseover = function btFilm_mouseover (event)// @startlock
+	{// @endlock
+		$$("cHelp").setValue("(Vidéos) Regarder les dernières vidéos mises à disposition ... etc.");
+		$$("cHelp").show();
+	};// @lock
+
+	btFilm.mouseout = function btFilm_mouseout (event)// @startlock
+	{// @endlock
+		$$("cHelp").hide();
+	};// @lock
+
+	btFilm.click = function btFilm_click (event)// @startlock
+	{// @endlock
+		$$("intro").hide();
+		$$("cHelp").hide();
+		$$("cchg").show();
+		$$('component1').loadComponent("/Aide.waComponent");
+	};// @lock
 
 	btMesPDF.mouseover = function btMesPDF_mouseover (event)// @startlock
 	{// @endlock
@@ -460,6 +480,9 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
+	WAF.addListener("btFilm", "mouseover", btFilm.mouseover, "WAF");
+	WAF.addListener("btFilm", "mouseout", btFilm.mouseout, "WAF");
+	WAF.addListener("btFilm", "click", btFilm.click, "WAF");
 	WAF.addListener("btMesInfos", "click", btMesInfos.click, "WAF");
 	WAF.addListener("btMesPDF", "mouseover", btMesPDF.mouseover, "WAF");
 	WAF.addListener("btMesPDF", "mouseout", btMesPDF.mouseout, "WAF");
