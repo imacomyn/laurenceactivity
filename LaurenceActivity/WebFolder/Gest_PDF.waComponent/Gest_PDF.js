@@ -234,6 +234,7 @@ function constructor (id) {
 		$$('component1_cbCat').show();
 		$$('component1_btShow').hide();
 		$$('component1_cUpld').show();
+		$$('component1_uPhoto').show();
 		$$('component1_fShow').hide();
 		$$('component1_cNom').getLabel().setTextColor("red");
 		$$('component1_cAction').setValue("Créer");
@@ -256,6 +257,7 @@ function constructor (id) {
 		$$('component1_cbCat').hide();
 		$$('component1_btShow').show();
 		$$('component1_cUpld').hide();
+		$$('component1_uPhoto').hide();
 		$$('component1_fShow').hide();
 		$$('component1_cNom').getLabel().setTextColor("black");
 		$$('component1_cAction').setValue("-");
@@ -279,6 +281,7 @@ function constructor (id) {
 		$$('component1_cbCat').hide();
 		$$('component1_btShow').show();
 		$$('component1_cUpld').hide();
+		$$('component1_uPhoto').hide();
 		$$('component1_fShow').hide();
 		$$('component1_cNom').getLabel().setTextColor("black");
 		$$('component1_cAction').setValue("-");
@@ -305,6 +308,7 @@ function constructor (id) {
 		$$('component1_cbCat').show();
 		$$('component1_btShow').hide();
 		$$('component1_cUpld').show();
+		$$('component1_uPhoto').show();
 		$$('component1_fShow').hide();
 		$$('component1_cbCat').setValue($$('component1_cCat').getValue());
 		$$('component1_cAction').setValue("Modifier");
