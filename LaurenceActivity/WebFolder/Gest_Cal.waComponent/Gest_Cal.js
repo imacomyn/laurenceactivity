@@ -35,7 +35,7 @@ function constructor (id) {
 		var vCal, vMois, split_date;
 		$$("cchg").show();
 		
-		for (var i = 0; i < 36; i++) {
+		for (var i = 0; i < 37; i++) {
 			v = "component1_j"+i;
 			$$(v).hide();
 			v = "component1_i"+i;
@@ -143,6 +143,12 @@ function constructor (id) {
 					vBox = "component1_j"+ibx;
 					if (ibx === 35) {
 						$$("component1_cExt").show();
+						$$("component1_m36").hide();
+						$$("component1_am36").hide();
+					}
+					if (ibx === 36) {
+						$$("component1_m36").show();
+						$$("component1_am36").show();
 					}
 					split_date = vdDeb.split('/');
 					dbcl = new Date(split_date[2], split_date[1]*1 - 1, split_date[0]*1);
@@ -291,6 +297,7 @@ function constructor (id) {
 	}
 
 	// @region namespaceDeclaration// @startlock
+	var i36 = {};	// @icon
 	var dataGrid1 = {};	// @dataGrid
 	var i1 = {};	// @icon
 	var i2 = {};	// @icon
@@ -334,6 +341,17 @@ function constructor (id) {
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	i36.mouseover = function i36_mouseover (event)// @startlock
+	{// @endlock
+		$$("component1_tMess").setValue($$("component1_t36").getValue());
+		$$("component1_tMess").show();
+	};// @lock
+
+	i36.mouseout = function i36_mouseout (event)// @startlock
+	{// @endlock
+		$$("component1_tMess").hide();
+	};// @lock
 
 	dataGrid1.onRowDraw = function dataGrid1_onRowDraw (event)// @startlock
 	{// @endlock
@@ -774,6 +792,8 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_i36", "mouseover", i36.mouseover, "WAF");
+	WAF.addListener(this.id + "_i36", "mouseout", i36.mouseout, "WAF");
 	WAF.addListener(this.id + "_dataGrid1", "onRowDraw", dataGrid1.onRowDraw, "WAF");
 	WAF.addListener(this.id + "_i1", "mouseover", i1.mouseover, "WAF");
 	WAF.addListener(this.id + "_i1", "mouseout", i1.mouseout, "WAF");
