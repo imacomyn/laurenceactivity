@@ -15,11 +15,17 @@ function constructor (id) {
 	$$("cchg").hide();
 
 	// @region namespaceDeclaration// @startlock
+	var btC = {};	// @buttonImage
 	var btB = {};	// @buttonImage
 	var btPgm = {};	// @buttonImage
 	// @endregion// @endlock
 
 	// eventHandlers// @lock
+
+	btC.click = function btC_click (event)// @startlock
+	{// @endlock
+		$$('component1_video1').loadVideoByUrl("/Videos/ACL.mp4");
+	};// @lock
 
 	btB.click = function btB_click (event)// @startlock
 	{// @endlock
@@ -32,6 +38,7 @@ function constructor (id) {
 	};// @lock
 
 	// @region eventManager// @startlock
+	WAF.addListener(this.id + "_btC", "click", btC.click, "WAF");
 	WAF.addListener(this.id + "_btB", "click", btB.click, "WAF");
 	WAF.addListener(this.id + "_btPgm", "click", btPgm.click, "WAF");
 	// @endregion// @endlock
