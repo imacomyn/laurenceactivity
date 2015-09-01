@@ -2,33 +2,36 @@
 WAF.onAfterInit = function onAfterInit() {// @lock
 
 // @region namespaceDeclaration// @startlock
-	var sw2 = {};	// @switchbox
+	var cSel = {};	// @select
 	var W_Login = {};	// @login
 // @endregion// @endlock
 
 // eventHandlers// @lock
 
-	sw2.touchend = function sw2_touchend (event)// @startlock
+	cSel.change = function cSel_change (event)// @startlock
 	{// @endlock
-		var vSwitch,vUser;
+		var vSel, vUser;
 		
-		vSwitch = $$('sw2').getValue();
-		if (vSwitch === "Oui") {
+		$$('LstPDF').hide();
+		$$('sPDF').hide();
+		vSel = $$('cSel').getValue();
+		
+		if (vSel === "Cours PDF") {
 			vUser = WAF.directory.currentUser().userName;
 			sources.eleves.query("Utilisateur.Login = :1", { onSuccess: function(event) { 
-				var vEleID;
-				elem = sources.eleves;
-				if (elem.length > 0) {
-					vEleID = elem.ID;
-					sources.abonnes.query("Eleve.ID = :1", vEleID);
-					$$('ListPDF').show();
-					$$('fshow').show();
-				};		
+					alert("entre");
+					var vEleID;
+					elem = sources.eleves;
+					if (elem.length > 0) {
+						vEleID = elem.ID;
+						sources.abonnes.query("Eleve.ID = :1", vEleID);
+						$$('LstPDF').show();
+						$$('sPDF').show();
+					};		
 			}, params:[vUser] });
-		} else {
-			$$('ListPDF').hide();
-			$$('fshow').hide();
 		}
+		
+		
 	};// @lock
 
 	W_Login.login = function W_Login_login (event)// @startlock
@@ -40,6 +43,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		if (vUser !== null) {
 			
 			window.location = '/index-tablet.html';
+			
 		}
 	};// @lock
 
@@ -49,7 +53,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
-	WAF.addListener("sw2", "touchend", sw2.touchend, "WAF");
+	WAF.addListener("cSel", "change", cSel.change, "WAF");
 	WAF.addListener("W_Login", "login", W_Login.login, "WAF");
 	WAF.addListener("W_Login", "logout", W_Login.logout, "WAF");
 // @endregion
