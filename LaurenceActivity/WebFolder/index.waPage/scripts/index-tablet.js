@@ -2,6 +2,9 @@
 WAF.onAfterInit = function onAfterInit() {// @lock
 
 // @region namespaceDeclaration// @startlock
+	var btV3 = {};	// @buttonImage
+	var btV2 = {};	// @buttonImage
+	var btV1 = {};	// @buttonImage
 	var ListAssoc = {};	// @dataGrid
 	var btRight = {};	// @image
 	var btLeft = {};	// @image
@@ -17,6 +20,21 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 // @endregion// @endlock
 
 // eventHandlers// @lock
+
+	btV3.click = function btV3_click (event)// @startlock
+	{// @endlock
+		$$('vFilm').loadVideoByUrl("/Videos/SRM2014.mp4");
+	};// @lock
+
+	btV2.click = function btV2_click (event)// @startlock
+	{// @endlock
+		$$('vFilm').loadVideoByUrl("/Videos/SRM2015.mp4");
+	};// @lock
+
+	btV1.click = function btV1_click (event)// @startlock
+	{// @endlock
+		$$('vFilm').loadVideoByUrl("/Videos/ACL.mp4");
+	};// @lock
 
 	ListAssoc.onRowDraw = function ListAssoc_onRowDraw (event)// @startlock
 	{// @endlock
@@ -78,6 +96,11 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('cEntete').hide();
 		$$('btRight').hide();
 		$$('btLeft').hide();
+		$$('btV1').hide();
+		$$('btV2').hide();
+		$$('btV3').hide();
+		$$('vFilm').resize(1,1);
+		$$('vFilm').move(1001,571);
 	};// @lock
 
 	btNews.click = function btNews_click (event)// @startlock
@@ -96,6 +119,11 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('cEntete').show();
 		$$('btLeft').show();
 		$$('btRight').show();
+		$$('btV1').hide();
+		$$('btV2').hide();
+		$$('btV3').hide();
+		$$('vFilm').resize(1,1);
+		$$('vFilm').move(1001,571);
 		
 	};// @lock
 
@@ -115,6 +143,11 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('cEntete').hide();
 		$$('btLeft').hide();
 		$$('btRight').hide();
+		$$('btV1').show();
+		$$('btV2').show();
+		$$('btV3').show();
+		$$('vFilm').move(7,43);
+		$$('vFilm').resize(726,461);
 	};// @lock
 
 	btPDF.click = function btPDF_click (event)// @startlock
@@ -131,6 +164,11 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('cEntete').hide();
 		$$('btRight').hide();
 		$$('btLeft').hide();
+		$$('btV1').hide();
+		$$('btV2').hide();
+		$$('btV3').hide();
+		$$('vFilm').resize(1,1);
+		$$('vFilm').move(1001,571);
 			
 		elem = sources.eleves;
 		if (elem.length > 0) {
@@ -216,6 +254,9 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
+	WAF.addListener("btV3", "click", btV3.click, "WAF");
+	WAF.addListener("btV2", "click", btV2.click, "WAF");
+	WAF.addListener("btV1", "click", btV1.click, "WAF");
 	WAF.addListener("ListAssoc", "onRowDraw", ListAssoc.onRowDraw, "WAF");
 	WAF.addListener("btRight", "click", btRight.click, "WAF");
 	WAF.addListener("btLeft", "click", btLeft.click, "WAF");
