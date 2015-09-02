@@ -23,7 +23,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 
 	btV3.click = function btV3_click (event)// @startlock
 	{// @endlock
-		$$('vFilm').loadVideoByUrl("/Videos/SRM2014.mp4");
+		$$('vFilm').loadVideoByUrl("/Videos/ACL.m4v");
 	};// @lock
 
 	btV2.click = function btV2_click (event)// @startlock
@@ -33,7 +33,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 
 	btV1.click = function btV1_click (event)// @startlock
 	{// @endlock
-		$$('vFilm').loadVideoByUrl("/Videos/ACL.mp4");
+		$$('vFilm').loadVideoByUrl("/Videos/SRM2014.mp4");
 	};// @lock
 
 	ListAssoc.onRowDraw = function ListAssoc_onRowDraw (event)// @startlock
