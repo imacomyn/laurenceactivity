@@ -49,6 +49,8 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 					$$('cCount').setValue(elem.length);
 					$$('cPos').setValue(0);
 				}, params:[vAssoc, vToday] });
+				sources.cours.query("Annee_Scolaire.Association.Sigle = :1 and dCours >= :2 ) order by dCours", vAssoc, vToday);
+				sources.stages.query("Annee_Scolaire.Association.Sigle = :1 and dFin >= :2 ) order by dDeb", vAssoc, vToday);
 		}
 	};// @lock
 
@@ -101,11 +103,17 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('btV3').hide();
 		$$('vFilm').resize(1,1);
 		$$('vFilm').move(1001,571);
+		$$("LstCours").setRowHeight(26);
+		$$('LstCours').show();
+		$$("LstStages").setRowHeight(26);
+		$$('LstStages').show();
 	};// @lock
 
 	btNews.click = function btNews_click (event)// @startlock
 	{// @endlock
 		$$('LstPDF').hide();
+		$$('LstCours').hide();
+		$$('LstStages').hide();
 		$$('sPDF').hide();
 		$$('btShow').hide();
 		$$('btClose').hide();
@@ -130,6 +138,8 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	btFilm.click = function btFilm_click (event)// @startlock
 	{// @endlock
 		$$('LstPDF').hide();
+		$$('LstCours').hide();
+		$$('LstStages').hide();
 		$$('sPDF').hide();
 		$$('btShow').hide();
 		$$('btClose').hide();
@@ -155,6 +165,8 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		var vSel, vUser, vRole, vQuery, vEleID;
 		
 		$$("LstPDF").setRowHeight(26);
+		$$('LstCours').hide();
+		$$('LstStages').hide();
 		$$('cTitre').hide();
 		$$('cDesc').hide();
 		$$('cCreat').hide();
