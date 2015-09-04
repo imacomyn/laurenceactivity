@@ -2,6 +2,7 @@
 WAF.onAfterInit = function onAfterInit() {// @lock
 
 // @region namespaceDeclaration// @startlock
+	var sAssoc = {};	// @select
 	var btV3 = {};	// @buttonImage
 	var btV2 = {};	// @buttonImage
 	var btV1 = {};	// @buttonImage
@@ -20,6 +21,27 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 // @endregion// @endlock
 
 // eventHandlers// @lock
+
+	sAssoc.change = function sAssoc_change (event)// @startlock
+	{// @endlock
+		var vAssoc, vToday, vID;
+		if (vID !== null) {
+			vAssoc = $$('sAssoc').getValue();
+			//alert(vAssoc);
+			vToday = new Date();
+				
+			sources.informations.query("Annee_Scolaire.Association.Sigle = :1 and ( Fin_Valide = null or Fin_Valide > :2 ) order by Date_Creation desc", { onSuccess: function(event) { 
+				//sources.informations.query("Annee_Scolaire.Association.Sigle = :1 and ( Fin_Valide = null or Fin_Valide > :2 ) order by Date_Creation desc",vAssoc, vToday);
+				elem = sources.informations;
+				$$('cCount').setValue(elem.length);
+				$$('cPos').setValue(0);
+				sources.cours.query("Annee_Scolaire.Association.Sigle = :1 and dCours >= :2 ) order by dCours", vAssoc, vToday);
+				sources.stages.query("Annee_Scolaire.Association.Sigle = :1 and dFin >= :2 ) order by dDeb", vAssoc, vToday);
+			}, params:[vAssoc, vToday] });
+			
+				
+		}
+	};// @lock
 
 	btV3.click = function btV3_click (event)// @startlock
 	{// @endlock
@@ -44,13 +66,15 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		if (vID !== null) {
 			vAssoc = elem.Sigle;
 			vToday = new Date();
-				sources.informations.query("Annee_Scolaire.Association.Sigle = :1 and ( Fin_Valide = null or Fin_Valide > :2 ) order by Date_Creation desc", { onSuccess: function(event) { 
-					elem = sources.informations;
-					$$('cCount').setValue(elem.length);
-					$$('cPos').setValue(0);
-				}, params:[vAssoc, vToday] });
-				sources.cours.query("Annee_Scolaire.Association.Sigle = :1 and dCours >= :2 ) order by dCours", vAssoc, vToday);
-				sources.stages.query("Annee_Scolaire.Association.Sigle = :1 and dFin >= :2 ) order by dDeb", vAssoc, vToday);
+				
+			sources.informations.query("Annee_Scolaire.Association.Sigle = :1 and ( Fin_Valide = null or Fin_Valide > :2 ) order by Date_Creation desc", { onSuccess: function(event) { 
+				elem = sources.informations;
+				$$('cCount').setValue(elem.length);
+				$$('cPos').setValue(0);
+			}, params:[vAssoc, vToday] });
+			sources.cours.query("Annee_Scolaire.Association.Sigle = :1 and dCours >= :2 ) order by dCours", vAssoc, vToday);
+			sources.stages.query("Annee_Scolaire.Association.Sigle = :1 and dFin >= :2 ) order by dDeb", vAssoc, vToday);
+				
 		}
 	};// @lock
 
@@ -85,6 +109,9 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	btPlan.click = function btPlan_click (event)// @startlock
 	{// @endlock
 		$$('LstPDF').hide();
+		$$('LstPDFb').hide();
+		$$('rPhotob').hide();
+		$$('sPDFb').hide();
 		$$('sPDF').hide();
 		$$('btShow').hide();
 		$$('btClose').hide();
@@ -107,6 +134,12 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('LstCours').show();
 		$$("LstStages").setRowHeight(26);
 		$$('LstStages').show();
+		$$('cHelp').setValue("Si un tableau est incomplet, cliquer de nouveau sur le bouton [Calendrier] pour le recharger.");
+		$$('cHelp').show();
+		if (waf.directory.currentUserBelongsTo("Professeur")) {
+			$$('cHelp').setValue("Sélectionner une association pour afficher les cours et les stages associés.");
+			$$('sAssoc').show();
+		}
 	};// @lock
 
 	btNews.click = function btNews_click (event)// @startlock
@@ -114,6 +147,9 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('LstPDF').hide();
 		$$('LstCours').hide();
 		$$('LstStages').hide();
+		$$('LstPDFb').hide();
+		$$('rPhotob').hide();
+		$$('sPDFb').hide();
 		$$('sPDF').hide();
 		$$('btShow').hide();
 		$$('btClose').hide();
@@ -132,6 +168,12 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('btV3').hide();
 		$$('vFilm').resize(1,1);
 		$$('vFilm').move(1001,571);
+		$$('cHelp').setValue("Cliquer sur les boutons [<] ou [>] pour faire défiler les informations existantes.");
+		$$('cHelp').show();
+		if (waf.directory.currentUserBelongsTo("Professeur")) {
+			$$('cHelp').setValue("Sélectionner une association puis cliquer sur les boutons [<] ou [>] pour faire défiler les informations existantes.");
+			$$('sAssoc').show();
+		}
 		
 	};// @lock
 
@@ -140,6 +182,9 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('LstPDF').hide();
 		$$('LstCours').hide();
 		$$('LstStages').hide();
+		$$('LstPDFb').hide();
+		$$('rPhotob').hide();
+		$$('sPDFb').hide();
 		$$('sPDF').hide();
 		$$('btShow').hide();
 		$$('btClose').hide();
@@ -158,6 +203,9 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('btV3').show();
 		$$('vFilm').move(7,43);
 		$$('vFilm').resize(726,461);
+		$$('cHelp').setValue("Cliquer sur un bouton pour voir le film associé. Attention, le chargement du film peut prendre quelques minutes.");
+		$$('cHelp').show();
+		$$('sAssoc').hide();
 	};// @lock
 
 	btPDF.click = function btPDF_click (event)// @startlock
@@ -165,6 +213,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		var vSel, vUser, vRole, vQuery, vEleID;
 		
 		$$("LstPDF").setRowHeight(26);
+		$$("LstPDFb").setRowHeight(26);
 		$$('LstCours').hide();
 		$$('LstStages').hide();
 		$$('cTitre').hide();
@@ -181,16 +230,34 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('btV3').hide();
 		$$('vFilm').resize(1,1);
 		$$('vFilm').move(1001,571);
-			
-		elem = sources.eleves;
-		if (elem.length > 0) {
-			vEleID = elem.ID;
-			sources.abonnes.query("Eleve.ID = :1", vEleID);
-			$$('LstPDF').show();
-			$$('btShow').show();
-			$$('rPhoto').show();
+		$$('sAssoc').hide();
+		
+		if (waf.directory.currentUserBelongsTo("Elève")) {	
+			elem = sources.eleves;
+			if (elem.length > 0) {
+				vEleID = elem.ID;
+				sources.abonnes.query("Eleve.ID = :1", vEleID);
+				$$('LstPDFb').hide();
+				$$('rPhotob').hide();
+				$$('sPDFb').hide();
+				$$('LstPDF').show();
+				$$('btShow').show();
+				$$('rPhoto').show();
+				$$('sPDF').hide();
+				$$('cHelp').setValue("Si le tableau est incomplet, cliquer de nouveau sur le bouton [Cours PDF]");
+				$$('cHelp').show();
+			};	
+		} else {
+			$$('LstPDF').hide();
+			$$('rPhoto').hide();
 			$$('sPDF').hide();
-		};		
+			$$('LstPDFb').show();
+			$$('btShow').show();
+			$$('rPhotob').show();
+			$$('sPDFb').hide();
+			$$('cHelp').setValue("Si le tableau est incomplet, cliquer de nouveau sur le bouton [Cours PDF] pour le recharger");
+			$$('cHelp').show();
+		}	
 
 	};// @lock
 
@@ -209,18 +276,6 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 				vUserName = waf.directory.currentUser().userName;
 				sources.eleves.query("Utilisateur.Login = :1",vUserName);
 			}
-			if (waf.directory.currentUserBelongsTo("Professeur")) {
-
-				alert("Aucune fonction n'est disponible pour un professeur en version tablette. Vous devez utiliser ALT-C sur un ordinateur. Merci de votre compréhension");
-				$$('main').destroy();
-				
-			}
-			if (waf.directory.currentUserBelongsTo("Administrateur")) {
-
-				alert("Aucune fonction n'est disponible pour un administrateur en version tablette. Vous devez utiliser ALT-C sur un ordinateur. Merci de votre compréhension");
-				$$('main').destroy();
-				
-			}
 			
 		 }
 
@@ -238,13 +293,18 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 		$$('btShow').show();
 		$$('btClose').hide();
 		$$('sPDF').hide();
+		$$('sPDFb').hide();
 	};// @lock
 
 	btShow.click = function btShow_click (event)// @startlock
 	{// @endlock
 		$$('btShow').hide();
 		$$('btClose').show();
-		$$('sPDF').show();
+		if (waf.directory.currentUserBelongsTo("Elève")) {	
+			$$('sPDF').show();
+		} else {
+			$$('sPDFb').show();
+		}
 	};// @lock
 
 	W_Login.login = function W_Login_login (event)// @startlock
@@ -266,6 +326,7 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	};// @lock
 
 // @region eventManager// @startlock
+	WAF.addListener("sAssoc", "change", sAssoc.change, "WAF");
 	WAF.addListener("btV3", "click", btV3.click, "WAF");
 	WAF.addListener("btV2", "click", btV2.click, "WAF");
 	WAF.addListener("btV1", "click", btV1.click, "WAF");
